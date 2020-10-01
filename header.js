@@ -14,7 +14,7 @@
 
 
 document.write(`
-	<nav class="navbar navbar-expand-lg sticky-top navbar-light style="background-color: #F3ECD9;">
+	<nav class="navbar navbar-expand-lg navbar-light style="background-color: #F3ECD9;">
 		<h3 class="masthead-brand"><a class="navbar-brand" href="https://www.alicodermaker.com">Ali Coder Maker</a></h3>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
