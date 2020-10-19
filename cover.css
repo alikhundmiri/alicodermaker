@@ -168,6 +168,8 @@
   	padding-top:30px;
   	height:0;
   	overflow:hidden;
+    margin-bottom: 20px;
+    border-bottom: 6px solid var(--mainColor);    
   }
 
   .youtube-video{
@@ -183,7 +185,7 @@
   */
   .note {
     background-color: #EAF0CE;
-    border-left: 6px solid #EED21B;
+    border-left: 6px solid var(--mainColor);
     padding: 20px;
     margin-bottom: 3ch;
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
