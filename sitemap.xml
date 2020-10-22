@@ -130,8 +130,12 @@
 		
 		<loc>https://AliCoderMaker.com/productivity-threshold</loc>
 		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>		
+		<priority>0.5</priority>
 
+		<loc>https://AliCoderMaker.com/ipl-2020</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+		
 	</url>
 
 </urlset> 
