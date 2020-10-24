@@ -200,8 +200,11 @@
 					var gold_message = " ₹ " + gold_value_today.toLocaleString('en-IN',{minimumFractionDigits: 0,maximumFractionDigits: 0});
 
 					document.getElementById('gold_message').innerHTML = gold_message;
+					document.getElementById('total_gold').innerHTML = Math.round(gold_in_grams*10 * 100) / 100+ " g";
 					// alert("In "+ year + " You spend " + money + " rupees");
 
+					// calculating total zakath
+					total_zakath
 				}
 				else{
 					document.getElementById('gold_message').innerHTML = 'NaN';
@@ -262,15 +265,15 @@
 					
 					<div class="row">
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p class="secondary-money">₹ 10,10,210</p>
-							<p>Grams of Gold bought in YEAR</p>
+							<p id='total_gold' class="secondary-money">₹ 10,10,210</p>
+							<p>Total Gold</p>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p class="secondary-money">₹ 10,10,210</p>
-							<p>Total Money given in Khairath</p>
+							<p id='total_zakath' class="secondary-money">₹ 10,10,210</p>
+							<p>Total Zakath Contribution</p>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p class="secondary-money">₹ 10,10,210</p>
+							<p id='' class="secondary-money">₹ 10,10,210</p>
 							<p>Percentage Growth</p>
 						</div>
 					</div>
