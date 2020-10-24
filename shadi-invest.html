@@ -244,6 +244,16 @@
 			font-size: 2.1rem;
 			margin: 1.2rem;
 		}
+		.custom-form-field{
+			
+			border-top: 0px solid;
+			border-right: 0px solid;
+			border-bottom: 1px solid grey;
+			border-left: 0px solid;
+			background-color: #F3ECD9;
+			text-align: center;
+		}
+		
 	</style>
 
 	<!-- Custom styles for this template -->
@@ -268,8 +278,8 @@
 				<!-- onsubmit="return validateForm()" -->
 				<form name="myForm" style="text-align: center">
 
-					Year: <input id="yearField" type="text" name="year">
-					Amount: ₹ <input id="moneyField" type="text" name="money"><br>
+					Year: <input class="custom-form-field" id="yearField" type="text" name="year">
+					Amount: ₹ <input class="custom-form-field" id="moneyField" type="text" name="money"><br>
 
 					<!-- <input type="submit" value="Submit"> -->
 					<div id ="form_errors" style="color: red; font-size: 1rem"></div>
