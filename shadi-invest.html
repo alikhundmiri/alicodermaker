@@ -196,11 +196,11 @@
 					document.getElementById('gold_message').innerHTML = gold_message;
 
 					// VALUE MULTIPLIED 
-					value_multiplied_ = Math.round((gold_value_today-money)/money)
+					value_multiplied_ = Math.round((gold_value_today-money)/money*100)
 					console.log(money)
 					console.log(gold_value_today)
 					console.log(value_multiplied_)
-					document.getElementById('value_multiplied').innerHTML = value_multiplied_+"x";
+					document.getElementById('value_multiplied').innerHTML = value_multiplied_+"%";
 
 					document.getElementById('total_gold').innerHTML = Math.round(gold_in_grams*10 * 100) / 100+ " g";
 					// alert("In "+ year + " You spend " + money + " rupees");
@@ -292,7 +292,7 @@
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
 							<p id='value_multiplied' class="secondary-money"></p>
-							<p>Value Multiplied</p>
+							<p>Value Increased</p>
 						</div>
 					</div>
 				</div>
