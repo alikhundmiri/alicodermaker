@@ -46,6 +46,8 @@
 	<!-- The MVP -->
 	<script type="text/javascript">
 		// src: https://www.bankbazaar.com/gold-rate/gold-rate-trend-in-india.html
+		var money = 0;
+		var year = 1964;
 
 		var gold_history = [
 		{'year': 1964, 'rate': 63.25},
@@ -105,19 +107,78 @@
 		{'year': 2018, 'rate': 31438.00},
 		{'year': 2019, 'rate': 35220.00},
 		]
-		Number.prototype.format = function(n, x) {
-			var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-			return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
-		};
-		function validateForm() {
+		
+		document.addEventListener('DOMContentLoaded', function(){ 
 
-			var year = document.forms["myForm"]["year"].value;
-			var money = document.forms["myForm"]["money"].value;
-			if (year && money == "") {
+			// YEAR ENTERED CODE
+			var year_check = document.getElementById("yearField");
+			year_check.addEventListener('keyup', function(event){
+				var this_year = parseInt(this.value.replace(/\D/g,''),10);
+
+				if (this_year <= 2020 && this_year >= 1963){
+					// console.log("Year is valid")
+					validateForm(number)			
+				}
+				else{
+					console.log("Year is NOT valid")
+					document.getElementById('form_errors').innerHTML = 'Enter Year between 1964 & 2019';		
+				}
+			});
+			// YEAR ENTERED CODE END
+
+			// CURRENCY FORMATTER CODE
+			var currency_Formatter = document.getElementById("moneyField");
+			currency_Formatter.addEventListener('keyup', function(event){
+				number = Number(parseInt(this.value.replace(/\D/g,''),10));
+				
+				// money_spent = currency_Formatter.value;
+				// console.log(number);
+
+				// if money is not 0, format it. else leave it empty
+				if (currency_Formatter.value != 0){
+					currency_Formatter.value = number.toLocaleString('en-IN');
+				}
+				else{
+					currency_Formatter.value = "";
+				}
+				
+				// console.log(number.toLocaleString('en-IN'));
+				validateForm(number)
+
+			}, false);
+			// CURRENCY FORMATTER CODE END
+
+		}, false);
+
+		function validateForm(money) {
+
+			var year = document.forms["myForm"]["year"].value;	
+
+			console.log(year)
+
+			if (money==undefined){
+				money = Number(document.forms["myForm"]["money"].value);
+			}
+
+			console.log(money)
+
+			if (!year && !money) {
+				console.log("IM ins")
 				// alert("In "+ year + " You spend " + money + "rupees");
+				document.getElementById('form_errors').innerHTML = 'enter year & Money spend';
 				return true;
 			}
-			else{
+			else if (!year && money){
+				document.getElementById('form_errors').innerHTML = 'enter year';
+				return true;
+			}
+			else if (year && !money){
+				document.getElementById('form_errors').innerHTML = 'enter money spend';
+				return true;
+			}
+			else if (year && money){
+				document.getElementById('form_errors').innerHTML = '';
+
 				// DONE get year
 				// DONE get money
 				// DONE get gold rate today and on december [year]* 
@@ -136,7 +197,7 @@
 					var gold_at_today = 50000;
 					var gold_value_today = gold_in_grams * gold_at_today;
 
-					var gold_message = " ₹ " + gold_value_today.toLocaleString('en-IN');
+					var gold_message = " ₹ " + gold_value_today.toLocaleString('en-IN',{minimumFractionDigits: 0,maximumFractionDigits: 0});
 
 					document.getElementById('gold_message').innerHTML = gold_message;
 					// alert("In "+ year + " You spend " + money + " rupees");
@@ -152,6 +213,17 @@
 		}
 
 	</script>
+
+	<style type="text/css">
+		.primary-money{
+			font-size: 3rem;
+			margin: 2rem;
+		}
+		.secondary-money{
+			font-size: 2.1rem;
+			margin: 1.2rem;
+		}
+	</style>
 
 	<!-- Custom styles for this template -->
 	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
@@ -172,19 +244,36 @@
 
 		<main role="main" class="inner cover">
 			<div>
-				<form name="myForm" onsubmit="return validateForm()" >
-					Year: <input type="text" name="year"><br>
-					Amount: <input type="text" name="money"> Lakhs<br>
+				<!-- onsubmit="return validateForm()" -->
+				<form name="myForm" style="text-align: center">
 
-					<input type="submit" value="Submit">
+					Year: <input id="yearField" type="text" name="year">
+					Amount: ₹ <input id="moneyField" type="text" name="money"><br>
+
+					<!-- <input type="submit" value="Submit"> -->
+					<div id ="form_errors" style="color: red; font-size: 1rem"></div>
 
 				</form>
 				<hr>
 				<div style="text-align:center">
 
 					<p>Instead of spending on wedding, had you bought gold, it would have been worth</p>
-					<p id="gold_message" style="font-size: 3rem; margin: 2rem;"></p>
+					<p id="gold_message" class="primary-money"></p>
 					
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<p class="secondary-money">₹ 10,10,210</p>
+							<p>Grams of Gold bought in YEAR</p>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<p class="secondary-money">₹ 10,10,210</p>
+							<p>Total Money given in Khairath</p>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<p class="secondary-money">₹ 10,10,210</p>
+							<p>Percentage Growth</p>
+						</div>
+					</div>
 				</div>
 			</div>
 
