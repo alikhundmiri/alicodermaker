@@ -117,7 +117,8 @@
 
 				if (this_year <= 2020 && this_year >= 1963){
 					// console.log("Year is valid")
-					validateForm(number)			
+					validateForm(number)
+					document.getElementById('years_since').innerHTML = 'Enter Year between 1964 & 2019';
 				}
 				else{
 					console.log("Year is NOT valid")
@@ -144,26 +145,19 @@
 				
 				// console.log(number.toLocaleString('en-IN'));
 				validateForm(number)
-
 			}, false);
 			// CURRENCY FORMATTER CODE END
-
 		}, false);
 
 		function validateForm(money) {
 
-			var year = document.forms["myForm"]["year"].value;	
-
-			console.log(year)
+			var year = document.forms["myForm"]["year"].value;
 
 			if (money==undefined){
 				money = Number(document.forms["myForm"]["money"].value);
 			}
 
-			console.log(money)
-
 			if (!year && !money) {
-				console.log("IM ins")
 				// alert("In "+ year + " You spend " + money + "rupees");
 				document.getElementById('form_errors').innerHTML = 'enter year & Money spend';
 				return true;
@@ -198,16 +192,40 @@
 					var gold_value_today = gold_in_grams * gold_at_today;
 
 					var gold_message = " ₹ " + gold_value_today.toLocaleString('en-IN',{minimumFractionDigits: 0,maximumFractionDigits: 0});
-
+					document.getElementById("gold_result").style.visibility = "visible";
 					document.getElementById('gold_message').innerHTML = gold_message;
+
+					// VALUE MULTIPLIED 
+					value_multiplied_ = Math.round((gold_value_today-money)/money)
+					console.log(money)
+					console.log(gold_value_today)
+					console.log(value_multiplied_)
+					document.getElementById('value_multiplied').innerHTML = value_multiplied_+"x";
+
 					document.getElementById('total_gold').innerHTML = Math.round(gold_in_grams*10 * 100) / 100+ " g";
 					// alert("In "+ year + " You spend " + money + " rupees");
 
-					// calculating total zakath
-					total_zakath
+					// ZAKAT CALCULATOR
+					// total_zakath = gold rate at year end * 10%
+					var total_zakath_ = 0
+					for (var i = 0; i < gold_history.length; i++) {
+						
+						if (gold_history[i].year >= year) {
+							// console.log(gold_history[i].rate);
+							// console.log("in "+gold_history[i].year+" gold rate was "+gold_history[i].rate)
+							this_zakat_ =  gold_in_grams * gold_history[i].rate * 2/100
+							// console.log(this_zakat_)
+
+							total_zakath_= total_zakath_ + this_zakat_
+						}
+						
+					}
+					document.getElementById('total_zakath').innerHTML = " ₹ " + total_zakath_.toLocaleString('en-IN',{minimumFractionDigits: 0,maximumFractionDigits: 0});
+					// END OF ZAKAT CALCULATOR
+
 				}
 				else{
-					document.getElementById('gold_message').innerHTML = 'NaN';
+					document.getElementById('gold_message').innerHTML = '';
 				}
 
 				// alert("In "+ year + " You spend " + money + " rupees");
@@ -258,23 +276,23 @@
 
 				</form>
 				<hr>
-				<div style="text-align:center">
+				<div id="gold_result" style="text-align:center; visibility: hidden">
 
 					<p>Instead of spending on wedding, had you bought gold, it would have been worth</p>
 					<p id="gold_message" class="primary-money"></p>
 					
 					<div class="row">
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p id='total_gold' class="secondary-money">₹ 10,10,210</p>
+							<p id='total_gold' class="secondary-money"></p>
 							<p>Total Gold</p>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p id='total_zakath' class="secondary-money">₹ 10,10,210</p>
-							<p>Total Zakath Contribution</p>
+							<p id='total_zakath' class="secondary-money"></p>
+							<p>Zakath Contribution</p>
 						</div>
 						<div class="col-lg-4 col-md-6 col-sm-12">
-							<p id='' class="secondary-money">₹ 10,10,210</p>
-							<p>Percentage Growth</p>
+							<p id='value_multiplied' class="secondary-money"></p>
+							<p>Value Multiplied</p>
 						</div>
 					</div>
 				</div>
