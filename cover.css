@@ -6,47 +6,61 @@
  :root {
  	--mainColor: #EED21B;
   --NessColor: #BE74A2;
- }
- button {
- 	color: #0000EE;
- }
- button:focus,
- button:hover {
- 	background-color: #0000EE;
- 	color: #fff;
- }
+}
 
- /* Custom default button */
- a.btn-secondary{
+
+a,p,div,li,ul,td,th,tr{
+  font-family: 'Noto Serif', serif;
+}
+
+h1,h2,h3,h4,h5,h6{ 
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500!important;
+}
+h1.thicker,h2.thicker,h3.thicker,h4.thicker,h5.thicker.thicker,h6.thicker{ 
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900!important;
+}
+button {
+  color: #0000EE;
+}
+button:focus,
+button:hover {
+  background-color: #0000EE;
+  color: #fff;
+}
+
+/* Custom default button */
+a.btn-secondary{
   color: #000;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: .05rem solid #fff;
- }
-
- 
- a.btn-secondary:hover,
- a.btn-secondary:focus {
- 	color: var(--NessColor);
- 	text-shadow: none; /* Prevent inheritance from `body` */
- 	background-color: #fff;
- 	border: .05rem solid #fff;
- }
+}
 
 
- a{
+a.btn-secondary:hover,
+a.btn-secondary:focus {
   color: var(--NessColor);
- 	text-decoration: none;
- }
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
 
- a:hover {
- 	color: #000;
- 	text-decoration: none;
- }
 
- .counter{
+a{
+  color: var(--NessColor);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.counter{
  color: var(--NessColor); float: right!important;
-  }
+}
 /*
  * Base structure
  */
@@ -55,27 +69,27 @@
  body {
  	/*background-color: #333;*/
   /*background-color: #F3ECD9*/
- }
+}
 
- body {
- 	display: -ms-flexbox;
- 	display: flex;
- 	color: #212529;
- 	font-size: 19px;
- 	line-height: 29px;
- 	word-spacing: 1.2px;
- 	/*color: #fff;*/
- 	/*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
- 	/*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
- }
+body {
+  display: -ms-flexbox;
+  display: flex;
+  color: #212529;
+  font-size: 19px;
+  line-height: 29px;
+  word-spacing: 1.3px;
+  /*color: #fff;*/
+  /*text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);*/
+  /*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
+}
 
- .cover-container {
- 	max-width: 42em;
- }
+.cover-container {
+  max-width: 42em;
+}
 
- h5{
- 	line-height: 40px;
- }
+h5{
+  line-height: 40px;
+}
 /*
  * Header
  */
