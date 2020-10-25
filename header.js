@@ -14,16 +14,5 @@
 
 
 document.write(`
-	<nav class="navbar navbar-expand-lg navbar-light style="background-color: #F3ECD9;">
-		<h3 class="masthead-brand"><a class="navbar-brand" href="https://www.alicodermaker.com">Ali Coder Maker</a></h3>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="/instagram-guide-part-1">Instagram Guide</a>
-				<a class="nav-item nav-link" href="https://calendly.com/alicodermaker/30min">Book 1-on-1 Session</a>
-			</div>
-		</div>
-	</nav>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,500;0,900;1,100;1,500;1,900&display=swap" rel="stylesheet">	
 	`);
