@@ -47,18 +47,64 @@
 		// Basic api. 1000 calls/day
 
 		// TODO
-		// 1. Get user location
-		// 2. get restaurants around location
-		// 3. create a list of food_dish : Restaurant
+		// 1. Get user lat and long
+		
+		// 2. get city id: 
+		// https://developers.zomato.com/api/v2.1/locations?query=malakpet&lat=17.3697878&lon=78.4778049&count=10
+		// curl -X GET --header "Accept: application/json" --header "user-key: cb3f934ed6cb219543eedd26ceb815c7" "https://developers.zomato.com/api/v2.1/locations?query=malakpet&lat=17.3697878&lon=78.4778049&count=10"
+
+		// 3. get cuisines around location
+		// https://developers.zomato.com/api/v2.1/cuisines?city_id=6&lat=17.3697878&lon=78.4778049
+		// curl -X GET --header "Accept: application/json" --header "user-key: cb3f934ed6cb219543eedd26ceb815c7" "https://developers.zomato.com/api/v2.1/cuisines?city_id=6&lat=17.3697878&lon=78.4778049"
+
+		// LATER
+		// 4. create a list of food_dish : Restaurant
 		// maintain 2 lists: rejected, order
 
-	</script>
-	<!-- Custom styles for this template -->
-	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
-	<script src="https://AliCoderMaker.com/header.js"></script>
+		var cuisines
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script> -->
+		// ref: https://dev.to/codebubb/how-to-get-a-user-s-location-with-javascript-362o
+		// LEFT IT HERE.
+
+		// This is what appeped so far
+
+
+		// TWO 
+		// get the lat and log into this function.
+
+		const successfulLookup = position => {
+			// grab latitude and longitude from position.coords, which is what it returns from previous function
+			const {latitude, longitude} = position.coords;
+			console.log(position.coords);
+
+			// Here we commence fetch API. with header. After that it turns data into JSON.  Then it goes to function successfulCuisines THIS IS NOT READY
+			fetch('https://developers.zomato.com/api/v2.1/cuisines?lat=${latitude}&lon=${longitude}',{
+				method: 'POST',
+				headers: {
+					'Accept':'application/json',
+					'user-key':'cb3f934ed6cb219543eedd26ceb815c7',
+				},
+			})
+			.then(response=>response.json())
+			.then(successfulCuisines);
+		}
+
+		// ONE 
+		// check if Geolocation is available
+		if (window.navigator.geolocation) {
+ 			// if its available, ask user to allow location
+ 			// getCurrentPosition has two variables. first is successfulLookup, which directs to a function, if getCurrentPosition was a success. secons is a log, which happens if the getCurrentPosition was a fail.
+ 			window.navigator.geolocation.getCurrentPosition(successfulLookup, console.log);
+
+ 		} 
+ 		
+ 	</script>
+ 	<!-- Custom styles for this template -->
+ 	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
+ 	<script src="https://AliCoderMaker.com/header.js"></script>
+
+ 	<!-- Global site tag (gtag.js) - Google Analytics -->
+ 	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script> -->
 	<!-- <script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
