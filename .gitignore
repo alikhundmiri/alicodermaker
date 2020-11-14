@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+food.html
+influencer-ads.html
+text.html
+
+
+
+
 # Distribution / packaging
 .Python
 build/
