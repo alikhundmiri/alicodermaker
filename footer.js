@@ -1,5 +1,5 @@
 document.write(`
-	<footer class="mastfoot mt-auto">
+	<footer class="mastfoot" style="margin-top: 50px">
 	<div class="inner">
 	<p>have a question? An objection? Cool. Reachout to me on social.</p>
 	<p>Like what you read? share via <a href="/instagram">Instagram</a> or <a href="/twitter">Twitter</a>.</p>
