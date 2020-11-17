@@ -155,6 +155,10 @@
 		<loc>https://AliCoderMaker.com/text2html</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+
+		<loc>https://AliCoderMaker.com/belief</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
 	</url>
 
 </urlset> 
