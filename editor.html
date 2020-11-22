@@ -31,8 +31,19 @@
 	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
 	<style>
 		/*this disables the scrolling effect */
-		html, body {margin: 0; height: 100%; overflow: hidden}
-
+		html, body {
+			margin: 0; 
+			height: 100%; 
+			overflow: hidden;
+			color: white;
+			background-color: #232933;
+		}
+		p,li,ul,th{
+			color: white;
+		}
+		input{
+			background-color: #1a2330;
+		}
 		.bd-placeholder-img {
 			font-size: 1.125rem;
 			text-anchor: middle;
@@ -112,22 +123,24 @@
 			'bold italic backcolor | alignleft aligncenter ' +
 			'alignright alignjustify | bullist numlist outdent indent | ' +
 			'removeformat | help',
-		});
-	</script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+			skin: 'oxide-dark',
+  			content_css: 'dark'  // > **Note**: This feature is only available for TinyMCE 5.1 and later.
+  		});
+  	</script>
+  	<!-- Global site tag (gtag.js) - Google Analytics -->
+  	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
+  	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
 
-		gtag('config', 'UA-98290233-2');
-	</script>
-</head>
-<body>
-	<div class="cover-container d-flex p-3 mx-auto flex-column">
-		<main role="main" class="inner cover">
-			<!-- <h1 class="cover-heading">Copywrite Text Editor</h1> -->
+  		gtag('config', 'UA-98290233-2');
+  	</script>
+  </head>
+  <body>
+  	<div class="cover-container d-flex p-3 mx-auto flex-column">
+  		<main role="main" class="inner cover">
+  			<!-- <h1 class="cover-heading">Copywrite Text Editor</h1> -->
 			<!-- <div>
 				<div class="row header-line">Enter the keyword</div>
 				<div class="custom-form">
@@ -145,7 +158,7 @@
 				<!-- <div class="row header-line">Keywords Generated</div> -->
 				<div class="row">
 					<div class="col-3 keyword-col">
-						<div class="sticky-top row" style="background-color: white">
+						<div class="sticky-top row" style="background-color: #232933">
 							<div class="col">
 								
 								<div class="row header-line">SEO Editor</div>
