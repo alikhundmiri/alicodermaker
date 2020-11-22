@@ -7,24 +7,27 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 
 	<!-- Primary Meta Tags -->
 	<title>Keyword Auto generator</title>
 	<meta name="title" content="Keyword Auto generator">
-	<meta name="description" content="DESCRIPTION">
+	<meta name="description" content="Editor to write articles which people are searching for on google">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.alicodermaker.com/">
 	<meta property="og:title" content="Keyword Auto generator">
-	<meta property="og:description" content="DESCRIPTION">
+	<meta property="og:description" content="Editor to write articles which people are searching for on google">
 	<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.alicodermaker.com/">
 	<meta property="twitter:title" content="Keyword Auto generator">
-	<meta property="twitter:description" content="DESCRIPTION">
+	<meta property="twitter:description" content="Editor to write articles which people are searching for on google">
 	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
 	<style>
 		.bd-placeholder-img {
@@ -125,14 +128,26 @@
 
 						<div class="row">
 							<form id="keyword-form">
-								<input id="id_keyword" type="text" name="keyword" placeholder="Enter Seed Keyword">
+								<input id="id_keyword" type="text" name="keyword" value='python vs javascript' placeholder="Enter Seed Keyword">
 								<button class="btn btn-primary" type="submit">Find Longtail</button>
 								<div id ="form_errors" style="color: red; font-size: 1rem"></div>
 
 							</form>
 						</div>
-						<div class="row" id="list-of-keywords">
+						<div class="row">
 							
+							<table class="table table-borderless" id="list-of-keywords">
+								<thead>
+									<tr>
+										<th scope="col">rel</th>
+										<th scope="col">Keyword</th>
+										<th scope="col"></th>
+									</tr>
+								</thead>
+								<tbody id="list-of-keywords-body">
+									
+								</tbody>
+							</table>
 						</div>
 					</div>
 					<div class="col-9 textarea-col">
@@ -158,9 +173,23 @@
 	<!-- The MVP -->
 	<script type="text/javascript">
 		
+		/*
+		TODO
+		1. Add 'clear button' to remove all keywords from table and memory
+		2. Using the rel score... to dynamically Highlight table row in gradient of yellow
+		3. Add Splash Screen to explain how to use this tool
+		4. Should we disable findlongtail button after initial search?
+		*/
+		
+
+		// $(document).ready( function () {
+		// 	$('#list-of-keywords').DataTable();
+		// });
 
 		/*without jQuery (doesn't work in older IEs)*/
 		var past_keywords = [];
+
+		// BEGIN KEYWORD GENERATOR SCRIPT
 		function startKeywordFinder(event) {
 
 			/*get the keyword from text field*/
@@ -175,12 +204,11 @@
 				const longsearch = false;
 				var i;
 
-				// testing
+				// GET ALL ALPHABETS, A TO Z,
 				for (var i = 97; i < 123; i++) {
+					// SEND IT TO KEYWORD COMBINER
 					keyword_combiner(i, base_keyword, longsearch);
 				};
-				// end testing
-				// send_api_request(base_keyword)
 				// console.log("Finish");
 			};
 			// console.log("past_keywords: " + past_keywords)
@@ -189,7 +217,7 @@
 			event.preventDefault();
 		};
 
-
+		// CREATE NEW KEYWORD BY ADDING ALPHABET IN FRONT AND END
 		function keyword_combiner(i, base_keyword, longsearch) {
 			send_api_request(base_keyword + " " + String.fromCharCode(i));
 			send_api_request(String.fromCharCode(i) + " " + base_keyword);
@@ -200,6 +228,7 @@
 			}
 		}
 
+		// SEND API REQUEST
 		function send_api_request(keyword) {
 			// set the base URL
 			let base_url = 'https://suggestqueries.google.com/complete/search?';
@@ -218,27 +247,40 @@
 				},
 				success: function(jsondata){
 					console.log(jsondata)
-					$.each(jsondata[1], function(key, value) {
-						// console.log(value)
-						createNewEntry(value);
-					})
+					
+					for (var i = 0; i < jsondata[1].length; i++) {
+						// jsondata[1][i]
+						let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
+						let found_keyword = (jsondata[1][i]);
+						createNewEntry(found_keyword_rel, found_keyword);
+
+					}
 					// Add here to catch on fail
 				},
 			});
 
 		}
 
-		function createNewEntry(keyword){
+		// CREATE NEW TABLE ROW
+		function createNewEntry(rel, keyword){
 			/*Create a <div> node*/
-			var node = document.createElement("div");
-			node.setAttribute('class','keyword-div col-12');
+			var node = document.createElement("tr");
+			// node.setAttribute('class','keyword-div col-12');
 
 			// add an innerHTML to the node
-			node.innerHTML = `<p style="float: left">${keyword}</p> 
+			node.innerHTML = `
+			<td><p style='color:grey'>${rel}</p></td>
+			<td><p style="float: left">${keyword}</p></td>
+			<td><a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a></td>
+			`;
+			
+			/*
+			node.innerHTML = `<p style='color:grey'>${rel}</p><p style="float: left">${keyword}</p> 
 			<a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a>`;
+			*/
 
 			/* Append this node with the list: id="list-of-keywords" */
-			document.getElementById("list-of-keywords").appendChild(node);
+			document.getElementById("list-of-keywords-body").appendChild(node);
 		}
 		// Chekc for form submit. and initiate StartKeywordFinder
 		const form = document.getElementById('keyword-form')
