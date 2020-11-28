@@ -159,6 +159,11 @@
 		<loc>https://AliCoderMaker.com/belief</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+		
+		<loc>https://AliCoderMaker.com/shandaar-rant</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+		
 	</url>
 
 </urlset> 
