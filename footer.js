@@ -1,4 +1,22 @@
 document.write(`
+	<div style=" padding-top: 40px; background-color: #e4f9f2; padding: 20px; border-radius: 10px">
+		<h3>Read More</h3>
+		<p class="lead">Latest</p>
+		<table class="table table-borderless table-sm">
+			<tbody>
+				<tr>
+					<td class="table-date">29 nov</td>
+					<td class="table-link"><a href="/shandaar-rant">Movie Rant 001: Shandaar</a></td>
+				</tr>
+				<tr>
+					<td class="table-date">27 sept</td>
+					<td class="table-link"><!-- <span style="color: red">MUST READ</span>: --> <a href="/instagram-guide-part-1">Instagram Guide. Everything Besides Algorithm, Hashtags, Formats & Tags</a></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
 	<footer class="mastfoot" style="margin-top: 100px; border-top: 1px solid gray; padding-top: 40px; margin-bottom:40px">
 	<div class="inner">
 	<p>have a question? An objection? Cool. Reachout to me on social.</p>
