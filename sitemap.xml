@@ -164,6 +164,10 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 		
+		<loc>https://alicodermaker.com/upstart-rant</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+		
 	</url>
 
 </urlset> 
