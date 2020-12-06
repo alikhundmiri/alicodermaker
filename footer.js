@@ -1,5 +1,5 @@
 document.write(`
-	<div style=" padding-top: 40px; background-color: #e4f9f2; padding: 20px; border-radius: 10px">
+	<div style=" padding-top: 80px; background-color: #e4f9f2; padding: 20px; border-radius: 10px">
 		<h3>Read More</h3>
 		<p class="lead">Latest</p>
 		<table class="table table-borderless table-sm">
