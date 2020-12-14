@@ -7,8 +7,8 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
-					<td class="table-date">7 dec</td>
-					<td class="table-link"><a href="/low-trust-in-indian-education-system">Modern low trust in Indian education system</a></td>
+					<td class="table-date">14 dec</td>
+					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
 				</tr>
 				<tr>
 					<td class="table-date">27 sept</td>
