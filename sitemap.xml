@@ -170,7 +170,11 @@
 
 		<loc>https://alicodermaker.com/how-business-create-value</loc>
 		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>	
+		<priority>0.5</priority>
+
+		<loc>https://alicodermaker.com/grow-on-instagram-fast-and-organically</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
 	</url>
 
 </urlset> 

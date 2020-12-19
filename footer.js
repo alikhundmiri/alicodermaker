@@ -11,9 +11,8 @@ document.write(`
 					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
 				</tr>
 				<tr>
-					<td class="table-date">27 sept</td>
-					<td class="table-link"><!-- <span style="color: red">MUST READ</span>: --> <a href="/instagram-guide-part-1">Instagram Guide. Everything Besides Algorithm, Hashtags, Formats & Tags</a></td>
-
+					<td class="table-date">19 dec</td>
+					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
 				</tr>
 			</tbody>
 		</table>
