@@ -6,23 +6,24 @@ document.write(`
 		<p class="lead">Latest</p>
 		<table class="table table-borderless table-sm">
 			<tbody>
+			
+				<tr>
+					<td class="table-date">19 dec</td>
+					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
+				</tr>
 				<tr>
 					<td class="table-date">14 dec</td>
 					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
 				</tr>
 				<tr>
-					<td class="table-date">19 dec</td>
-					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
+					<td class="table-date">7 dec</td>
+					<td class="table-link"><a href="/low-trust-in-indian-education-system">Indian Education System Doesn't Trust Students?</a></td>
 				</tr>
 			</tbody>
 		</table>
 		<p class="lead">Recommended</p>
 		<table class="table table-borderless table-sm">
 			<tbody>
-				<tr>
-					<td class="table-date">14 dec</td>
-					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
-				</tr>
 				<tr>
 					<td class="table-date">19 dec</td>
 					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
