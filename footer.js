@@ -34,8 +34,10 @@ document.write(`
 		
 	<footer class="mastfoot" style="margin-top: 100px; border-top: 1px solid gray; padding-top: 40px; margin-bottom:40px">
 	<div class="inner">
-	<p>have a question? An objection? Cool. Reachout to me on social.</p>
-	<p>Like what you read? share via <a href="/instagram">Instagram</a> or <a href="/twitter">Twitter</a>.</p>
+	<p>Liked what you read? Have a question or an objection? Reachout to me on my social accounts.</p>
+	<p>You can find me on <a href="/instagram">Instagram</a> or <a href="/twitter">Twitter</a>.</p>
+	<br>
+	<p><i>Allah hafiz</i></p>
 	</div>
 	</footer>
 
