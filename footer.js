@@ -3,10 +3,10 @@ document.write(`
 	<br>
 	<div style=" padding-top: 40px; background-color: #e4f9f2; padding: 20px; border-radius: 10px">
 		<h3>Read More</h3>
-		<p class="lead">Latest</p>
+		<h5>Latest</h5>
 		<table class="table table-borderless table-sm">
 			<tbody>
-			
+
 				<tr>
 					<td class="table-date">19 dec</td>
 					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
@@ -21,7 +21,7 @@ document.write(`
 				</tr>
 			</tbody>
 		</table>
-		<p class="lead">Recommended</p>
+		<h5>Recommended</h5>
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
