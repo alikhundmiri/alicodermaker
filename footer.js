@@ -8,8 +8,8 @@ document.write(`
 			<tbody>
 
 				<tr>
-					<td class="table-date">19 dec</td>
-					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
+					<td class="table-date">27 dec</td>
+					<td class="table-link"><a href="alicodermakers-twitter-stats-2020">AliCoderMaker's Twitter Stats 2020</a></td>
 				</tr>
 				<tr>
 					<td class="table-date">14 dec</td>
@@ -26,7 +26,11 @@ document.write(`
 			<tbody>
 				<tr>
 					<td class="table-date">19 dec</td>
-					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically</a></td>
+					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically.</a></td>
+				</tr>
+				<tr>
+					<td class="table-date">27 sept</td>
+					<td class="table-link"><a href="/instagram-guide-part-1">Instagram Guide. Everything Besides Algorithm, Hashtags, Formats & Tags.</a></td>
 				</tr>
 			</tbody>
 		</table>
