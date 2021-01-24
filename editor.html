@@ -32,8 +32,8 @@
 	<style>
 		/*this disables the scrolling effect */
 		html, body {
-			margin: 0; 
-			height: 100%; 
+			margin: 0;
+			height: 100%;
 			overflow: hidden;
 			color: white;
 			background-color: #232933;
@@ -44,6 +44,8 @@
 		input{
 			background-color: #1a2330;
 		}
+
+
 		.bd-placeholder-img {
 			font-size: 1.125rem;
 			text-anchor: middle;
@@ -88,7 +90,9 @@
 			height: 100vh;
 
 		}
-
+		tr, td {
+			vertical-align: middle;
+		}
 		.keyword-div{
 			/*background-color: #ededed;*/
 			transition: 0.4s, ease;
@@ -101,8 +105,92 @@
 			margin-top: 2px;
 			vertical-align: center;
 		}
+
+		.rel_300 {
+			background-color: #E0D0C1;
+			color: #121717;
+		}
+
+		.rel_400 {
+			background-color: #DDCBBB;
+			color: #121717;
+		}
+
+		.rel_500 {
+			background-color: #D6C1AE;
+			color: #121717;
+		}
+
+		.rel_600 {
+			background-color: #CFB7A0;
+			color: #121717;
+		}
+
+		.rel_700 {
+			background-color: #C8AD92;
+			color: #121717;
+		}
+
+		.rel_800 {
+			background-color: #C1A285;
+			color: #121717;
+		}
+
+		.rel_900 {
+			background-color: #BB9877;
+			color: #F7F9F9;
+		}
+
+		.rel_1000 {
+			background-color: #B48E6A;
+			color: #F7F9F9;
+		}
+
+		.rel_1100 {
+			background-color: #AD835C;
+			color: #F7F9F9;
+		}
+
+		.rel_1200 {
+			background-color: #A37952;
+			color: #F7F9F9;
+		}
+
+		.rel_1300 {
+			background-color: #956F4B;
+			color: #F7F9F9;
+		}
+
+		.rel_1400 {
+			background-color: #886544;
+			color: #F7F9F9;
+		}
+
+
 	</style>
 
+	<!-- 
+		COLORS
+
+		BLACK FONE
+		300 #E0D0C1
+		400 #DDCBBB
+		500 #D6C1AE
+		600 #CFB7A0
+		700 #C8AD92
+		800 #C1A285
+
+		WHITE FONT
+		900 #BB9877
+		1000 #B48E6A
+		1100 #AD835C
+		1200 #A37952
+		1300 #956F4B
+		1400 #886544
+		#7A5B3E
+		#6D5137
+		#5F4730
+	-->
 	<!-- Custom styles for this template -->
 	<!-- <link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet"> -->
 	<script src="https://AliCoderMaker.com/header.js"></script>
@@ -125,6 +213,7 @@
 			'removeformat | help',
 			skin: 'oxide-dark',
   			content_css: 'dark'  // > **Note**: This feature is only available for TinyMCE 5.1 and later.
+
   		});
   	</script>
   	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -189,7 +278,6 @@
 							<table class="table table-borderless" id="list-of-keywords">
 								<thead>
 									<tr>
-										<th scope="col">rel</th>
 										<th scope="col">Keyword</th>
 										<th scope="col"></th>
 									</tr>
@@ -296,13 +384,14 @@
 					'q' : keyword,
 				},
 				success: function(jsondata){
-					console.log(jsondata)
+					// console.log(jsondata)
 					
 					for (var i = 0; i < jsondata[1].length; i++) {
 						// jsondata[1][i]
 						let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
 						let found_keyword = (jsondata[1][i]);
 						createNewEntry(found_keyword_rel, found_keyword);
+						// console.log(found_keyword_rel, found_keyword);
 
 					}
 					// Add here to catch on fail
@@ -315,11 +404,21 @@
 		function createNewEntry(rel, keyword){
 			/*Create a <div> node*/
 			var node = document.createElement("tr");
+
+			// rounding off rel
+			var rel_new = Math.ceil(rel/100)*100;
+
+			node.setAttribute('class',`rel_${rel_new}`);
+
+			// create a seperate class fro each rel_new range.
+			// with differentshade of color. Pick 20.
+
+
 			// node.setAttribute('class','keyword-div col-12');
 
 			// add an innerHTML to the node
+			// <td><p style='color:grey'>${rel_new}</p></td>
 			node.innerHTML = `
-			<td><p style='color:grey'>${rel}</p></td>
 			<td><p style="float: left">${keyword}</p></td>
 			<td><a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a></td>
 			`;
@@ -344,7 +443,7 @@
 			// document.getElementById("article-editor").value += targ;
 			
 			// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
-			tinymce.editors[0].getBody().innerHTML += `<h2>${targ}</h2>`;
+			tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
 
 			console.log(targ);
 			return false;
