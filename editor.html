@@ -250,7 +250,19 @@
 						<div class="sticky-top row" style="background-color: #232933">
 							<div class="col">
 								
-								<div class="row header-line">SEO Editor</div>
+								<div class="row">
+									<div class="header-line col" style="padding-left: 0px; padding-right: 0px;">
+										<div style="float: left">
+											SEO Editor
+										</div>
+										<div style="float: right">
+											<!-- Button trigger modal -->
+											<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#helpModal" style="margin-bottom: 10px;">
+												help
+											</button>
+										</div>
+									</div>
+								</div>
 
 								<div class="row">
 									<form style="width: 100%" id="keyword-form">
@@ -260,7 +272,7 @@
 
 											<div class="input-group-append">
 
-												<button class="btn btn-outline-secondary" type="submit">Find Longtail</button>
+												<button class="btn btn-secondary" type="submit">Find Longtail</button>
 
 											</div>
 										</div>
@@ -279,7 +291,7 @@
 								<thead>
 									<tr>
 										<th scope="col">Keyword</th>
-										<th scope="col"></th>
+										<th scope="col"><a >what</a></th>
 									</tr>
 								</thead>
 								<tbody id="list-of-keywords-body">
@@ -296,6 +308,65 @@
 				</div>
 			</div>
 		</main>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade bd-example-modal-lg" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content" style="color: black;">
+				<div class="modal-header">
+					<div class="col">
+						
+						<h5 class="modal-title" id="helpModalLabel">SEO Editor</h5>
+						<p style="color: black;"><i>Free Editor to write articles your audience is searching</i></p>
+					</div>
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="col">
+							
+							<div class="row">
+								<h5>
+									SEO Editor is a text editor to write articles searched by your audience.
+								</h5><br>
+							</div>
+
+							<div class="row">
+								<img src="https://github.com/alikhundmiri/alicodermaker/blob/master/images/seo-editor/seo-editor-v1-caption-640p.gif?raw=true" style="max-width:100%;max-height:100%; object-fit: contain;">
+							</div>
+							<div class="row">
+								<a href="https://github.com/alikhundmiri/alicodermaker/blob/master/images/seo-editor/seo-editor-v1-caption-bigp.gif" target="_blank">view in fullscreen</a>
+							</div>
+							<div class="row">
+								<h5>
+									How to use?
+								</h5><br>
+
+								<p style="color: black">
+									<ul style="color: black">
+										<li style="color: black">Enter the main keyword in field on left</li>
+										<li style="color: black">Pick a few keywords from generated list</li>
+										<li style="color: black">Click on add buton to add the keyword as subtitle into your article</li>
+									</ul>
+								</p>
+							</div>
+
+							<div class="row">
+								<p style="color: black;">In order to make full use of it, make sure you use the main keywords a few times.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Optional JavaScript -->
@@ -327,6 +398,30 @@
 		/*without jQuery (doesn't work in older IEs)*/
 		var past_keywords = [];
 
+		// Function to add H2 texts in textarea. 
+		function addH1(targ) {
+			
+			tinymce.editors[0].getBody().innerHTML += `<h1>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h1>`;
+
+			// console.log(targ);
+			return false;
+		}
+
+
+		// Function to add H2 texts in textarea. 
+		function addH2(event) {
+			var targ = event.getAttribute('value');
+
+			// document.getElementById("article-editor").value += targ;
+			
+			// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
+			tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
+
+			console.log(targ);
+			return false;
+		}
+
+
 		// BEGIN KEYWORD GENERATOR SCRIPT
 		function startKeywordFinder(event) {
 
@@ -347,6 +442,7 @@
 					// SEND IT TO KEYWORD COMBINER
 					keyword_combiner(i, base_keyword, longsearch);
 				};
+				addH1(base_keyword);
 				// console.log("Finish");
 			};
 			// console.log("past_keywords: " + past_keywords)
@@ -436,18 +532,6 @@
 		form.addEventListener('submit', startKeywordFinder)
 
 
-		// Function to add H2 texts in textarea. 
-		function addH2(event) {
-			var targ = event.getAttribute('value');
-
-			// document.getElementById("article-editor").value += targ;
-			
-			// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
-			tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
-
-			console.log(targ);
-			return false;
-		}
 		
 	</script>
 	<!-- END of The MVP -->
