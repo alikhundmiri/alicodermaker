@@ -11,15 +11,18 @@
 
 a,p,div,li,ul,td,th,tr{
   font-family: 'Noto Serif', serif;
+  color: #191c1f;
 }
 
 h1,h2,h3,h4,h5,h6{ 
   font-family: 'Roboto', sans-serif;
   font-weight: 700!important;
+  color: #191c1f;
 }
 h1.thicker,h2.thicker,h3.thicker,h4.thicker,h5.thicker.thicker,h6.thicker{ 
   font-family: 'Roboto', sans-serif;
   font-weight: 900!important;
+  color: #191c1f;
 }
 
 button {
@@ -248,4 +251,23 @@ h5{
     margin-left:7px;
     font-weight:500;
     font-size:14px;
+  }
+
+  /*Spoiler tag. use with Span for line by line effect. Shows the spoiler immedietely, and hides again after 10 seconds*/
+  .spoiler{ 
+    color: transparent;
+    background-color: var(--NessColor);
+    -webkit-transition: all .4s ease-in;
+    -moz-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    -ms-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+    transition-delay: 10s;
+  }
+
+  .spoiler:hover { 
+    color: var(--NessColor);
+    background-color:transparent;
+    transition-duration: 0s;
+    transition-delay: 0s;
   }
