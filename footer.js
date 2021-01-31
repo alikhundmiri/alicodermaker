@@ -6,7 +6,10 @@ document.write(`
 		<h5>Latest</h5>
 		<table class="table table-borderless table-sm">
 			<tbody>
-
+				<tr>
+					<td class="table-date">31 jan</td>
+					<td class="table-link"><a href="wandavision-world-after-thanos">WandaVision - Building The World After Thanos</a></td>
+				</tr>
 				<tr>
 					<td class="table-date">27 dec</td>
 					<td class="table-link"><a href="alicodermakers-twitter-stats-2020">AliCoderMaker's Twitter Stats 2020</a></td>
@@ -14,10 +17,6 @@ document.write(`
 				<tr>
 					<td class="table-date">14 dec</td>
 					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
-				</tr>
-				<tr>
-					<td class="table-date">7 dec</td>
-					<td class="table-link"><a href="/low-trust-in-indian-education-system">Indian Education System Doesn't Trust Students?</a></td>
 				</tr>
 			</tbody>
 		</table>
