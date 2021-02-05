@@ -183,6 +183,10 @@
 		<loc>https://alicodermaker.com/wandavision-world-after-thanos</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	
+		<loc>https://alicodermaker.com/bought-a-domain-but-too-lazy-to-build-the-idea</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
 	</url>
 
 </urlset> 
