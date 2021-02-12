@@ -233,9 +233,14 @@
 			'alignright alignjustify | bullist numlist outdent indent | ' +
 			'removeformat | help',
 			skin: 'oxide-dark',
-  			content_css: 'dark'  // > **Note**: This feature is only available for TinyMCE 5.1 and later.
-
+  			content_css: 'dark',  // > **Note**: This feature is only available for TinyMCE 5.1 and later.
+  			// setup: function (editor) {
+  			// 	editor.on('init', function () {
+  			// 		this.setContent('Using the on init stuff!');
+  			// 	})
+  			// }
   		});
+
   	</script>
   	<!-- Global site tag (gtag.js) - Google Analytics -->
   	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
@@ -288,9 +293,9 @@
 								<div class="row">
 									<form style="width: 100%" id="keyword-form">
 										<div class="input-group mb-3">
-											<input autocomplete="off" class="form-control" id="id_keyword" type="text" name="keyword" placeholder="Enter Keyword" aria-label="Seed Keywords" aria-describedby="basic-addon2">
+											<input autocomplete="off" class="form-control" id="id_keyword" type="text" name="search" placeholder="Enter Keyword" aria-label="Seed Keywords" aria-describedby="basic-addon2">
 											<div class="input-group-append">
-												<button class="btn btn-secondary" type="submit">Find Longtail</button>
+												<button id="findLongtailButton" class="btn btn-secondary" type="submit">Find Longtail</button>
 											</div>
 										</div>
 										<div id ="form_errors" style="color: red; font-size: 1rem"></div>
@@ -305,7 +310,7 @@
 								<thead>
 									<tr>
 										<th scope="col">Keyword</th>
-										<th scope="col"><a><!-- what --></a></th>
+										<th scope="col"><!-- what --></th>
 									</tr>
 								</thead>
 								<tbody id="list-of-keywords-body">
@@ -361,7 +366,7 @@
 							<h3>
 								How to Use
 							</h3>
-		
+
 							<img src="https://github.com/alikhundmiri/alicodermaker/blob/master/images/seo-editor/seo-editor-v1-caption-bigp.gif?raw=true" style="max-width:100%;max-height:100%; object-fit: contain; text-align: center;" loading='lazy'>
 						</div>
 						<div class="row">
@@ -610,95 +615,101 @@
 <!-- The MVP -->
 <script type="text/javascript">
 
-		/*
-		TODO
-		1. Add 'clear button' to remove all keywords from table and memory
-		2. Using the rel score... to dynamically Highlight table row in gradient of yellow
-		3. Add Splash Screen to explain how to use this tool
-		4. Should we disable findlongtail button after initial search?
-		*/
-		
+	/*
+	TODO
+	1. Add 'clear button' to remove all keywords from table and memory
+	2. Using the rel score... to dynamically Highlight table row in gradient of yellow
+	3. Add Splash Screen to explain how to use this tool
+	4. Should we disable findlongtail button after initial search?
+	*/
+	
 
-		// $(document).ready( function () {
-		// 	$('#list-of-keywords').DataTable();
-		// });
+	// $(document).ready( function () {
+	// 	$('#list-of-keywords').DataTable();
+	// });
 
-		/*without jQuery (doesn't work in older IEs)*/
-		var past_keywords = [];
+	/*without jQuery (doesn't work in older IEs)*/
+	var past_keywords = [];
 
-		// Function to add H2 texts in textarea. 
-		function addH1(targ) {
-			
-			tinymce.editors[0].getBody().innerHTML += `<h1>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h1>`;
+	// Function to add H2 texts in textarea. 
+	function addH1(targ) {
+
+		tinymce.editors[0].getBody().innerHTML += `<h1>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h1>`;
 
 			// console.log(targ);
 			return false;
 		}
 
 
-		// Function to add H2 texts in textarea. 
-		function addH2(event) {
-			var targ = event.getAttribute('value');
-			// document.getElementById("article-editor").value += targ;
-			// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
-			tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
+	// Function to add H2 texts in textarea. 
+	function addH2(event) {
+		var targ = event.getAttribute('value');
+		// document.getElementById("article-editor").value += targ;
+		// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
+		tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
+		console.log(targ);
+		return false;
+	}
 
-			console.log(targ);
-			return false;
+
+	// BEGIN KEYWORD GENERATOR SCRIPT
+	function startKeywordFinder(event, base=0) {
+
+		console.log(base)
+		/*get the keyword from text field*/
+		if (base){
+			var base_keyword = base;
 		}
-
-
-		// BEGIN KEYWORD GENERATOR SCRIPT
-		function startKeywordFinder(event) {
-
-			/*get the keyword from text field*/
+		else{
 			var base_keyword = document.getElementById('id_keyword').value;
-
-			/*check if this keyword have been requested in this before*/
-			if (past_keywords.includes(base_keyword)) {
-				alert("you have already searched for " + base_keyword);
-
-			} else {
-				if (past_keywords.length === 0){
-					addH1(base_keyword);
-				};
-				past_keywords.push(base_keyword);
-				const longsearch = false;
-				var i;
-
-				// GET ALL ALPHABETS, A TO Z,
-				for (var i = 97; i < 123; i++) {
-					// SEND IT TO KEYWORD COMBINER
-					keyword_combiner(i, base_keyword, longsearch);
-				};
-				// console.log("Finish");
-			};
-			// console.log("past_keywords: " + past_keywords)
-			// console.log('base_keyword: ' + base_keyword)
-
-			event.preventDefault();
-		};
-
-		// CREATE NEW KEYWORD BY ADDING ALPHABET IN FRONT AND END
-		function keyword_combiner(i, base_keyword, longsearch) {
-			send_api_request(base_keyword + " " + String.fromCharCode(i));
-			send_api_request(String.fromCharCode(i) + " " + base_keyword);
-
-			if (longsearch) {
-				send_api_request(base_keyword + " " + String.fromCharCode(i) + String.fromCharCode(i));
-				send_api_request(String.fromCharCode(i) + String.fromCharCode(i) + " " + base_keyword);
-			}
 		}
+		console.log(base_keyword)
 
-		// SEND API REQUEST
-		function send_api_request(keyword) {
-			// set the base URL
-			let base_url = 'https://suggestqueries.google.com/complete/search?';
+		/*check if this keyword have been requested in this before*/
+		if (past_keywords.includes(base_keyword)) {
+			alert('you have already searched for "' + base_keyword + '"');
+		} 
+		else {
+			console.log("not in past keyword")
+			if (past_keywords.length === 0){
+				addH1(base_keyword);
+			};
+			past_keywords.push(base_keyword);
+			const longsearch = false;
+			var i;
 
-			// Start AJAX API Fetch
-			$.ajax({
-				type: 'GET',
-				crossDomain: true,
+			// GET ALL ALPHABETS, A TO Z,
+			for (var i = 97; i < 123; i++) {
+				// SEND IT TO KEYWORD COMBINER
+				keyword_combiner(i, base_keyword, longsearch);
+			};
+			console.log("Finish");
+		};
+		console.log("past_keywords: " + past_keywords)
+		console.log('base_keyword: ' + base_keyword)
+		event.preventDefault();
+	};
+
+	// CREATE NEW KEYWORD BY ADDING ALPHABET IN FRONT AND END
+	function keyword_combiner(i, base_keyword, longsearch) {
+		send_api_request(base_keyword + " " + String.fromCharCode(i));
+		send_api_request(String.fromCharCode(i) + " " + base_keyword);
+
+		if (longsearch) {
+			send_api_request(base_keyword + " " + String.fromCharCode(i) + String.fromCharCode(i));
+			send_api_request(String.fromCharCode(i) + String.fromCharCode(i) + " " + base_keyword);
+		}
+	}
+
+	// SEND API REQUEST
+	function send_api_request(keyword) {
+		// set the base URL
+		let base_url = 'https://suggestqueries.google.com/complete/search?';
+
+		// Start AJAX API Fetch
+		$.ajax({
+			type: 'GET',
+			crossDomain: true,
 				dataType: 'jsonp', // we want jsonp. this will over ride CORS stuff
 				url: base_url,
 				data: {
@@ -708,61 +719,76 @@
 					'q' : keyword,
 				},
 				success: function(jsondata){
-					// console.log(jsondata)
-					
-					for (var i = 0; i < jsondata[1].length; i++) {
-						// jsondata[1][i]
-						let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
-						let found_keyword = (jsondata[1][i]);
-						createNewEntry(found_keyword_rel, found_keyword);
-						// console.log(found_keyword_rel, found_keyword);
+				// console.log(jsondata)
 
-					}
-					// Add here to catch on fail
-				},
-			});
+				for (var i = 0; i < jsondata[1].length; i++) {
+					// jsondata[1][i]
+					let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
+					let found_keyword = (jsondata[1][i]);
+					createNewEntry(found_keyword_rel, found_keyword);
+					// console.log(found_keyword_rel, found_keyword);
 
-		}
+				}
+				// Add here to catch on fail
+			},
+		});
+	}
 
-		// CREATE NEW TABLE ROW
-		function createNewEntry(rel, keyword){
-			/*Create a <div> node*/
-			var node = document.createElement("tr");
+	// CREATE NEW TABLE ROW
+	function createNewEntry(rel, keyword){
+		/*Create a <div> node*/
+		var node = document.createElement("tr");
 
-			// rounding off rel
-			var rel_new = Math.ceil(rel/100)*100;
+		// rounding off rel
+		var rel_new = Math.ceil(rel/100)*100;
 
-			// node.setAttribute('class',`rel_${rel_new}`);
+		// node.setAttribute('class',`rel_${rel_new}`);
 
-			// create a seperate class fro each rel_new range.
-			// with differentshade of color. Pick 20.
-
-
-			// node.setAttribute('class','keyword-div col-12');
-
-			// add an innerHTML to the node
-			// <td><p style='color:grey'>${rel_new}</p></td>
-			node.innerHTML = `
-			<td class="rel_${rel_new}"><p style="float: left">${keyword}</p></td>
-			<td><a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a></td>
-			`;
-			
-			/*
-			node.innerHTML = `<p style='color:grey'>${rel}</p><p style="float: left">${keyword}</p> 
-			<a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a>`;
-			*/
-
-			/* Append this node with the list: id="list-of-keywords" */
-			document.getElementById("list-of-keywords-body").appendChild(node);
-		}
-		// Chekc for form submit. and initiate StartKeywordFinder
-		const form = document.getElementById('keyword-form')
-		form.addEventListener('submit', startKeywordFinder)
+		// create a seperate class fro each rel_new range.
+		// with differentshade of color. Pick 20.
 
 
+		// node.setAttribute('class','keyword-div col-12');
+
+		// add an innerHTML to the node
+		// <td><p style='color:grey'>${rel_new}</p></td>
+		node.innerHTML = `
+		<td class="rel_${rel_new}"><p style="float: left">${keyword}</p></td>
+		<td><a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a></td>
+		`;
 		
-	</script>
-	<!-- END of The MVP -->
+		/*
+		node.innerHTML = `<p style='color:grey'>${rel}</p><p style="float: left">${keyword}</p> 
+		<a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a>`;
+		*/
+
+		/* Append this node with the list: id="list-of-keywords" */
+		document.getElementById("list-of-keywords-body").appendChild(node);
+	}
+	// Check for form submit. and initiate StartKeywordFinder
+	const form = document.getElementById('keyword-form')
+	form.addEventListener('submit', startKeywordFinder)
+
+
+	// start this after page is loaded
+	window.onload = function() {
+		// reading the url params
+		const params = new URLSearchParams(window.location.search);
+		console.log(params);
+		if (params.has('search')) {
+			document.getElementById('id_keyword').value = params.get('search');
+			console.log(params.get('search'));
+			startKeywordFinder(event,params.get('search'));
+			// document.getElementById('keyword-form').submit();
+			// document.getElementById('findLongtailButton').click();
+		};
+	};
+
+// file:///Users/alikhundmiri/Desktop/pythons/alicodermaker/alicodermaker/editor.html?search=this%20is%20lit&location=india&language=english
+
+
+</script>
+<!-- END of The MVP -->
 
 </body>
 </html>
