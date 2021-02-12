@@ -188,11 +188,11 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 
-		<loc>https://alicodermaker.com/editor</loc>
+		<loc>https://alicodermaker.com/editor-intro</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 
-		<loc>https://alicodermaker.com/editor/write</loc>
+		<loc>https://alicodermaker.com/editor-app</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
