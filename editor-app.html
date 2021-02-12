@@ -776,11 +776,16 @@
 		const params = new URLSearchParams(window.location.search);
 		console.log(params);
 		if (params.has('search')) {
+			
+			// Write search param in the field
 			document.getElementById('id_keyword').value = params.get('search');
-			console.log(params.get('search'));
+			
+			// start keyword finder
 			startKeywordFinder(event,params.get('search'));
-			// document.getElementById('keyword-form').submit();
-			// document.getElementById('findLongtailButton').click();
+
+			// Change page title. 
+			// This is to give content. Helpful for user when they look at their history
+			document.title = params.get('search') + " | SEO Editor"; 
 		};
 	};
 
