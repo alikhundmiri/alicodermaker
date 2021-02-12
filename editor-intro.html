@@ -315,10 +315,11 @@
 			// convert to param link
 			const querystring = encodeQueryData(data);
 
-			const final_link = 'https://alicodermaker.com/editor/write' + '?' + querystring;
+			// add the page link
+			const final_link = 'https://alicodermaker.com/editor-app' + '?' + querystring;
 
-			console.log(querystring);
-			console.log(final_link);
+			// open
+			window.open(final_link);
 
 			event.preventDefault();
 		};
