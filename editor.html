@@ -12,7 +12,7 @@
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 
 	<!-- Primary Meta Tags -->
-	<title>SEO Editor</title>
+	<title>Welcome to SEO Editor</title>
 	<meta name="title" content="SEO Editor - Write What People Want to Read">
 	<meta name="description" content="Editor to write articles which people are searching for on google">
 
@@ -25,7 +25,7 @@
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://www.alicodermaker.com/">
+	<meta property="twitter:url" content="https://www.alicodermaker.com/editor">
 	<meta property="twitter:title" content="SEO Editor - Write What People Want to Read">
 	<meta property="twitter:description" content="Editor to write articles which people are searching for on google">
 	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
@@ -216,579 +216,127 @@
 	<!-- <link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet"> -->
 	<script src="https://AliCoderMaker.com/header.js"></script>
 
-	<!-- TINYMC for text editor -->
-	<script src="https://cdn.tiny.cloud/1/kmd7edgycr8jwaicu6cv4l01uj0ybc91n3qk3ookmb67njed/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
 	<script>
-		tinymce.init({
-			selector: '.article-editor',
-			menubar: false,
-			placeholder: `Begin by entering your main keyword and click 'add' for relatable keywords.`,
-			plugins: [
-			'advlist autolink lists link image charmap print preview anchor',
-			'searchreplace visualblocks code fullscreen',
-			'insertdatetime media table paste code help wordcount'
-			],
-			toolbar: 'undo redo | formatselect | ' +
-			'bold italic backcolor | alignleft aligncenter ' +
-			'alignright alignjustify | bullist numlist outdent indent | ' +
-			'removeformat | help',
-			skin: 'oxide-dark',
-  			content_css: 'dark',  // > **Note**: This feature is only available for TinyMCE 5.1 and later.
-  			// setup: function (editor) {
-  			// 	editor.on('init', function () {
-  			// 		this.setContent('Using the on init stuff!');
-  			// 	})
-  			// }
-  		});
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-  	</script>
-  	<!-- Global site tag (gtag.js) - Google Analytics -->
-  	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
-  	<script>
-  		window.dataLayer = window.dataLayer || [];
-  		function gtag(){dataLayer.push(arguments);}
-  		gtag('js', new Date());
+		gtag('config', 'UA-98290233-2');
+	</script> -->
+</head>
+<body>
 
-  		gtag('config', 'UA-98290233-2');
-  	</script>
-  </head>
-  <body>
-  	<div class="cover-container d-flex p-3 mx-auto flex-column">
-  		<main role="main" class="inner cover">
-  			<!-- <h1 class="cover-heading">Copywrite Text Editor</h1> -->
-			<!-- <div>
-				<div class="row header-line">Enter the keyword</div>
-				<div class="custom-form">
-					<form id="keyword-form">
-						
-							<input id="id_keyword" type="text" name="keyword">
-
-							<button class="btn btn-primary" type="submit">Find Longtail</button>
-							<div id ="form_errors" style="color: red; font-size: 1rem"></div>
-						
-					</form>
-				</div>
-			</div> -->
-			<div>
-				<!-- <div class="row header-line">Keywords Generated</div> -->
+	<div class="container h-100">
+		<div class="row align-items-center h-100">
+			<div class="col-12 mx-auto">
+				<h1  style="text-align: center;" class="cover-heading">Write articles <span style="color: yellow">people are searching on Google</span> with jelly<span style="color: yellow">Writer</span></h1>	
+				<br>
 				<div class="row">
-					<div class="col-3 keyword-col">
-						<div class="sticky-top row" style="background-color: #232933">
-							<div class="col">
-								
-								<div class="row">
-									<div class="header-line col" style="padding-left: 0px; padding-right: 0px;">
-										<!-- Button trigger modal -->
-										<button type="button" class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#guideModal" style="margin-bottom: 10px;">
-											Guide
-										</button>
-										
-										<!-- <div style="float: right">
-											SEO Editor
-											
-										</div> -->
-									</div>
-								</div>
-
-								<div class="row">
-									<form style="width: 100%" id="keyword-form">
-										<div class="input-group mb-3">
-											<input autocomplete="off" class="form-control" id="id_keyword" type="text" name="search" placeholder="Enter Keyword" aria-label="Seed Keywords" aria-describedby="basic-addon2">
-											<div class="input-group-append">
-												<button id="findLongtailButton" class="btn btn-secondary" type="submit">Find Longtail</button>
-											</div>
-										</div>
-										<div id ="form_errors" style="color: red; font-size: 1rem"></div>
-									</form>
-								</div>
+					<div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12" style="text-align: center;">
+						<form id="userKeywordForm">
+							<div class="form-group">
+								<input class="form-control form-control-lg" id="topicField" type="text" placeholder="Enter your Article/Blog/Landing page Topic" autofocus="autofocus">
 							</div>
-						</div>
-
-						<div class="row">
-							
-							<table class="table table-borderless" id="list-of-keywords">
-								<thead>
-									<tr>
-										<th scope="col">Keyword</th>
-										<th scope="col"><!-- what --></th>
-									</tr>
-								</thead>
-								<tbody id="list-of-keywords-body">
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="col-9 textarea-col">
-						<div class="row">
-							<div class="header-line col">
-								SEO Editor
-
-								<div style="float: right">
-									<!-- Button trigger modal -->
-									<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#helpModal" style="margin-bottom: 10px;">
-										How SEO Editor Works
-									</button>
-									<!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#upgradeModal" style="margin-bottom: 10px;">
-										Upgrade
-									</button> -->
-								</div>
+							<div class="form-group">
+								<small id="title_help" class="form-text text-muted">
+									For best result try 3-7 words
+								</small>
 							</div>
-						</div>
-						<textarea id='article-editor' class="article-editor"></textarea>
-						<!-- <div class="row header-line">Editor</div> -->
+							<div class="form-group">
+								<button type="submit" id="startEditorButton" class="btn btn-lg btn-outline-warning">
+									Find similar topics
+								</button>
+								<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+							</div>
+						</form>
+					</div>
+					<div class="col-12">
+						<!-- three step explanation here -->
 					</div>
 				</div>
-			</div>
-		</main>
-	</div>
-
-	<!-- Modal -->
-	<div class="modal fade bd-example-modal-lg" id="guideModal" tabindex="-1" role="dialog" aria-labelledby="guideModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content" style="color: black;">
-				<div class="modal-header">
-					<div class="col">
-						
-						<h2 class="modal-title" id="helpModalLabel">Guide</h2>
-						<!-- <p style="color: black;"><i>SEO Editor</i></p> -->
-					</div>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="col">
-
-						</div>
-						<div class="row">
-							<h3>
-								How to Use
-							</h3>
-
-							<img src="https://github.com/alikhundmiri/alicodermaker/blob/master/images/seo-editor/seo-editor-v1-caption-bigp.gif?raw=true" style="max-width:100%;max-height:100%; object-fit: contain; text-align: center;" loading='lazy'>
-						</div>
-						<div class="row">
-							<a href="https://github.com/alikhundmiri/alicodermaker/blob/master/images/seo-editor/seo-editor-v1-caption-bigp.gif" target="_blank">view in fullscreen</a>
-						</div>
-						<br>
-						<div class="row">
-							<h3>
-								Step by Step Guide
-							</h3>
-						</div>
-						<div class="row" style="color: black">
-
-							<p>
-								<ol>
-									<li>
-										Enter your article topic keywords into the field on left
-									</li>
-									<li>
-										Click on <b>Find Longtail</b>
-									</li>
-									<li>
-										You will be presented with 100s of relavent keywords. <b>This data is directly from google</b>.
-									</li>
-									<li>
-										Scroll down, browse through and find longtail keywords relavent to your article.
-									</li>
-									<li>
-										To add Longtail Keywords to your text editing area click button 'add'
-									</li>
-									<li>
-										Write your article as your like.
-									</li>
-								</ol>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="modal fade bd-example-modal-lg" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content" style="color: black;">
-			<div class="modal-header">
-				<div class="col">
-
-					<h2 class="modal-title" id="helpModalLabel">How SEO Editor Works</h2>
-					<!-- <p style="color: black;"><i>SEO Editor</i></p> -->
-				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<div class="col">
-						<div class="row">
-							<h3>
-								What is SEO Editor?
-							</h3>
-						</div>
-						<div class="row">
-							<p>
-								SEO Editor is an tool which helps you write meaningful articles and blogs based on what your readers are searching on Google.
-							</p>
-							<br>
-						</div>
-						<div class="row">
-							<h3>What SEO Editor can't do?</h3>
-							<p>SEO Editor doesn't promise your articles will automatically rank higher. Instead, SEO Editor gives you a glimpse into what your readers are interested in reading.</p>
-							<br>
-						</div>
-						<div class="row">
-							<h3>How to use SEO Editor?</h3>
-							<p>Before looking into how to use SEO editor, here's how Google Search works</p>
-
-							<br>
-
-							<h5>How Google Search works</h5>
-							<p>Ranking on Google Search depends on 100s of variables. But to boil it down, google's algorithm is always optimised, to make sure people find what they are looking for.</p>
-
-							<div style="border-radius: 20px; background-color: #EBEBEB; padding: 20px; margin-bottom: 20px">
-
-								<p>
-									<b>For users, a searcher on google,</b> this is how google work:
-								</p>
-								<ol>
-									<li>They search for what they want,</li>
-									<li>scroll down and browse through titles,</li>
-									<li>modify search query, when no title answer their question,</li>
-									<li>open page with a title which promises an answer to their question,</li>
-									<li>if page content doesn't answer their question, they come back to google search page,</li>
-									<li>if page content answers their question, they read through the page.</li>
-								</ol>
-								<p>
-									<b>For you, a website owner,</b> this is how you experience it. Your ranking on search result rises up when:
-								</p>
-								<ol>
-									<li>enough people search for your keyword,</li>
-									<li>clicked on your link, and</li>
-									<li>stayed on your page for a considerable duration.</li>
-								</ol>
-								<p>
-									<b>For Google, the search engine,</b> this means your page had enough value for these visitor, so maybe other people searching for the same keyword, will also find value in your page. When this happens enough times, your page ranking rises up.
-								</p>
-								<p style="color: gray">for more info, read this <a href="https://www.google.com/search/howsearchworks/algorithms/" target="_blank">from google</a></p>
-							</div>
 
 
-							<h5>How to use SEO Editor?</h5>
-							<p>
-								Now that we know how SEO works, here's how your can use SEO Editor, to write article.
-							</p>
-							<p>
-								While writing, your goal as a writer's goal is to provide value promised in the title. But the promise and the delivery can be missaligned, based on how everyone look at your title.
-							</p>
-							<div style="border-radius: 20px; background-color: #EBEBEB; padding: 20px; margin-bottom: 20px">
-								<p>
-									Use SEO Editor to better understand what people perceive when they search for your keyword.
-								</p>
-								<p>
-									From here you can either change your Keyword to align with your content. Or make modification to your content to fit in what people want when they search for your keyword.
-								</p>
-							</div>
 
-							<p>
-								To get a better idea of 
-								As a content creator, you should know what your audience is searching for. 
-							</p>
-							<br>
-							<br>
-						</div>
-						<br>
-						<div class="row">
-							<h3>How does SEO Editor get keyword data?</h3>
-							<p>SEO Editor instantly get all keywords suggestions from Google. These keywords are color coded in order of relevance to your main keyword.</p>
-							<br>
-						</div>
-						<div class="row">
-							<h3>What does the color code means?</h3>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-							<div class="col-12">
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_1300">most people who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_1200">a lot people who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_1100">many people who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_1000">Some people who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_900"> </div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_800"> </div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_700"> </div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_600">People who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_500">few People who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_400">Fewer people who search for your keyword, also searched for this keyword</div>
-								<div style="padding: 5px; width: 100%; height: 40px; vertical-align: middle; text-align: center;" class="rel_300">less people who search for your keyword, also searched for this keyword</div>
-							</div>
+	<!-- trying this text editor for textaread-->
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
 
-						</div>							
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-			</div>
-		</div>
-	</div>
-</div>
+	<!-- The MVP -->
+	<script type="text/javascript">
 
-<div class="modal fade bd-example-modal-lg" id="upgradeModal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content" style="color: black;">
-			<div class="modal-header">
-				<div class="col">
-					<h2 class="modal-title" id="helpModalLabel">⭐️ Upgrade ⭐️</h2>
-					<!-- <p style="color: black;"><i>SEO Editor</i></p> -->
-				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="container-fluid">
-					<div class="col">
-						<div class="row">
-							<h3 >
-								Do more with SEO Editor
-							</h3>
-							<p class="lead" style="color: black">With SEO editor you can write SEO friendly articles, backed by real users search pattern.</p>
-							<br>
-							<p class="lead" style="color: black">Which of the following features would you be interested in?</p>
-						</div>
-						<div class="row" style="color: black">
-							<button type="button" class="btn btn-outline-primary btn-lg btn-block">
-								Publish Instantly
-							</button>
-
-							<button type="button" class="btn btn-outline-primary btn-lg btn-block">
-								Save to Google Drive
-							</button>
-
-							<button type="button" class="btn btn-outline-primary btn-lg btn-block">
-								Markdown Text Editor
-							</button>
-
-							<button type="button" class="btn btn-outline-primary btn-lg btn-block">
-								Export Article to Wordpress/Ghost/Medium...
-							</button>
-
-							<button type="button" class="btn btn-outline-primary btn-lg btn-block">
-								Import Article from Wordpress/Ghost/Medium and Analyse
-							</button>
-
-						</div>
-						<br><br>
-
-						<div class="row">
-							<p style="text-align: center; color: black;">Thank you showing interest in SEO editor</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-<!-- trying this text editor for textaread-->
-<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-
-<!-- The MVP -->
-<script type="text/javascript">
-
-	/*
-	TODO
-	1. Add 'clear button' to remove all keywords from table and memory
-	2. Using the rel score... to dynamically Highlight table row in gradient of yellow
-	3. Add Splash Screen to explain how to use this tool
-	4. Should we disable findlongtail button after initial search?
-	*/
-	
-
-	// $(document).ready( function () {
-	// 	$('#list-of-keywords').DataTable();
-	// });
-
-	/*without jQuery (doesn't work in older IEs)*/
-	var past_keywords = [];
-
-	// Function to add H2 texts in textarea. 
-	function addH1(targ) {
-
-		tinymce.editors[0].getBody().innerHTML += `<h1>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h1>`;
-
-			// console.log(targ);
-			return false;
-		}
-
-
-	// Function to add H2 texts in textarea. 
-	function addH2(event) {
-		var targ = event.getAttribute('value');
-		// document.getElementById("article-editor").value += targ;
-		// tinymce.get('.article-editor').getBody().innerHTML = `<h2>${targ}</h2>`;
-		tinymce.editors[0].getBody().innerHTML += `<h2>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h2>`;
-		console.log(targ);
-		return false;
-	}
-
-
-	// BEGIN KEYWORD GENERATOR SCRIPT
-	function startKeywordFinder(event, base=0) {
-
-		console.log(base)
-		/*get the keyword from text field*/
-		if (base){
-			var base_keyword = base;
-		}
-		else{
-			var base_keyword = document.getElementById('id_keyword').value;
-		}
-		console.log(base_keyword)
-
-		/*check if this keyword have been requested in this before*/
-		if (past_keywords.includes(base_keyword)) {
-			alert('you have already searched for "' + base_keyword + '"');
-		} 
-		else {
-			console.log("not in past keyword")
-			if (past_keywords.length === 0){
-				addH1(base_keyword);
-			};
-			past_keywords.push(base_keyword);
-			const longsearch = false;
-			var i;
-
-			// GET ALL ALPHABETS, A TO Z,
-			for (var i = 97; i < 123; i++) {
-				// SEND IT TO KEYWORD COMBINER
-				keyword_combiner(i, base_keyword, longsearch);
-			};
-			console.log("Finish");
-		};
-		console.log("past_keywords: " + past_keywords)
-		console.log('base_keyword: ' + base_keyword)
-		event.preventDefault();
-	};
-
-	// CREATE NEW KEYWORD BY ADDING ALPHABET IN FRONT AND END
-	function keyword_combiner(i, base_keyword, longsearch) {
-		send_api_request(base_keyword + " " + String.fromCharCode(i));
-		send_api_request(String.fromCharCode(i) + " " + base_keyword);
-
-		if (longsearch) {
-			send_api_request(base_keyword + " " + String.fromCharCode(i) + String.fromCharCode(i));
-			send_api_request(String.fromCharCode(i) + String.fromCharCode(i) + " " + base_keyword);
-		}
-	}
-
-	// SEND API REQUEST
-	function send_api_request(keyword) {
-		// set the base URL
-		let base_url = 'https://suggestqueries.google.com/complete/search?';
-
-		// Start AJAX API Fetch
-		$.ajax({
-			type: 'GET',
-			crossDomain: true,
-				dataType: 'jsonp', // we want jsonp. this will over ride CORS stuff
-				url: base_url,
-				data: {
-					'client':'chrome',
-					'gl':'in',
-					'hl':'en',
-					'q' : keyword,
-				},
-				success: function(jsondata){
-				// console.log(jsondata)
-
-				for (var i = 0; i < jsondata[1].length; i++) {
-					// jsondata[1][i]
-					let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
-					let found_keyword = (jsondata[1][i]);
-					createNewEntry(found_keyword_rel, found_keyword);
-					// console.log(found_keyword_rel, found_keyword);
-
-				}
-				// Add here to catch on fail
-			},
-		});
-	}
-
-	// CREATE NEW TABLE ROW
-	function createNewEntry(rel, keyword){
-		/*Create a <div> node*/
-		var node = document.createElement("tr");
-
-		// rounding off rel
-		var rel_new = Math.ceil(rel/100)*100;
-
-		// node.setAttribute('class',`rel_${rel_new}`);
-
-		// create a seperate class fro each rel_new range.
-		// with differentshade of color. Pick 20.
-
-
-		// node.setAttribute('class','keyword-div col-12');
-
-		// add an innerHTML to the node
-		// <td><p style='color:grey'>${rel_new}</p></td>
-		node.innerHTML = `
-		<td class="rel_${rel_new}"><p style="float: left">${keyword}</p></td>
-		<td><a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a></td>
-		`;
-		
 		/*
-		node.innerHTML = `<p style='color:grey'>${rel}</p><p style="float: left">${keyword}</p> 
-		<a style="float: right" value='${keyword}' onclick="return addH2(this)" href="">Add</a>`;
+		TODO
+		This is for the sake of onboarding.
+		THE WORDS SHOULD BE SIMPLE FOR NON-MARKETTER TO UNDERSTAND
+		1. Present with google like search box with title "Your Topic"
+		2. two buttons.
+			1. Start Writing on "title enter"
+			2. Start Research <- disable this for now. in future this should take to editor free, kanban style research tool
+		3. On clicking each button, take user to respective page, and auto fill the search word
 		*/
 
-		/* Append this node with the list: id="list-of-keywords" */
-		document.getElementById("list-of-keywords-body").appendChild(node);
-	}
-	// Check for form submit. and initiate StartKeywordFinder
-	const form = document.getElementById('keyword-form')
-	form.addEventListener('submit', startKeywordFinder)
+		// window.onload = function() {
+		// 	document.getElementById("topicField").focus();
+		// };
 
+		// Code lifted from: https://stackoverflow.com/questions/111529/how-to-create-query-parameters-in-javascript/111545
+		function encodeQueryData(data) {
+			const ret = [];
+			for (let d in data)
+				ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+			return ret.join('&');
+		}
 
-	// start this after page is loaded
-	window.onload = function() {
-		// reading the url params
-		const params = new URLSearchParams(window.location.search);
-		console.log(params);
-		if (params.has('search')) {
-			document.getElementById('id_keyword').value = params.get('search');
-			console.log(params.get('search'));
-			startKeywordFinder(event,params.get('search'));
-			// document.getElementById('keyword-form').submit();
-			// document.getElementById('findLongtailButton').click();
+		// BEGIN KEYWORD GENERATOR SCRIPT
+		function startEditor(event) {
+
+			/*get the keyword from text field*/
+			var base_keyword = document.getElementById('topicField').value;
+			
+			console.log(base_keyword);
+
+			// take the param
+			const data = {
+				search: base_keyword,
+				location: 'in',
+			};
+
+			// convert to param link
+			const querystring = encodeQueryData(data);
+
+			// add the page link
+			const final_link = 'https://alicodermaker.com/editor-app' + '?' + querystring;
+
+			// open
+			window.open(final_link);
+
+			event.preventDefault();
 		};
-	};
-
-// file:///Users/alikhundmiri/Desktop/pythons/alicodermaker/alicodermaker/editor.html?search=this%20is%20lit&location=india&language=english
 
 
-</script>
-<!-- END of The MVP -->
+		// Check for form submit. and initiate StartKeywordFinder
+		const form = document.getElementById('userKeywordForm')
+		form.addEventListener('submit', startEditor)
 
+
+		
+	</script>
+	<!-- END of The MVP -->
+	<!-- Possible names -->
+	<!-- 
+	jellywriter.com
+	fortwriter.com
+-->
 </body>
 </html>
