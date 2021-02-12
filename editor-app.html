@@ -634,11 +634,15 @@
 	// Function to add H2 texts in textarea. 
 	function addH1(targ) {
 
-		tinymce.editors[0].getBody().innerHTML += `<h1>${targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}</h1>`;
+		var title_ = targ.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase());
 
-			// console.log(targ);
-			return false;
-		}
+		tinymce.editors[0].getBody().innerHTML += `<h1>${title_}</h1>`;
+		// Change page title. 
+		// This is to give content. Helpful for user when they look at their history
+		document.title = title_ + " | SEO Editor"; 
+		
+		return false;
+	}
 
 
 	// Function to add H2 texts in textarea. 
@@ -670,7 +674,7 @@
 			alert('you have already searched for "' + base_keyword + '"');
 		} 
 		else {
-			console.log("not in past keyword")
+			// console.log("not in past keyword")
 			if (past_keywords.length === 0){
 				addH1(base_keyword);
 			};
@@ -685,8 +689,11 @@
 			};
 			console.log("Finish");
 		};
-		console.log("past_keywords: " + past_keywords)
-		console.log('base_keyword: ' + base_keyword)
+		// console.log("past_keywords: " + past_keywords)
+		// console.log('base_keyword: ' + base_keyword)
+
+		// code here to re-arrange table wrt rel score.
+		sort_table();
 		event.preventDefault();
 	};
 
@@ -779,13 +786,9 @@
 			
 			// Write search param in the field
 			document.getElementById('id_keyword').value = params.get('search');
-			
+
 			// start keyword finder
 			startKeywordFinder(event,params.get('search'));
-
-			// Change page title. 
-			// This is to give content. Helpful for user when they look at their history
-			document.title = params.get('search') + " | SEO Editor"; 
 		};
 	};
 
