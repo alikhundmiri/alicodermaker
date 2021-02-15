@@ -195,6 +195,10 @@
 		<loc>https://alicodermaker.com/editor</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+
+		<loc>https://alicodermaker.com/content-creator-dtc-brand</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
 	</url>
 
 </urlset> 

@@ -7,16 +7,16 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
+					<td class="table-date">15 feb</td>
+					<td class="table-link"><a href="content-creator-dtc-brand">Content Creator DTC Brand</a></td>
+				</tr>
+				<tr>
 					<td class="table-date">31 jan</td>
 					<td class="table-link"><a href="wandavision-world-after-thanos">WandaVision - Building The World After Thanos</a></td>
 				</tr>
 				<tr>
 					<td class="table-date">27 dec</td>
 					<td class="table-link"><a href="alicodermakers-twitter-stats-2020">AliCoderMaker's Twitter Stats 2020</a></td>
-				</tr>
-				<tr>
-					<td class="table-date">14 dec</td>
-					<td class="table-link"><a href="/how-business-create-value">How Business Create Value</a></td>
 				</tr>
 			</tbody>
 		</table>
