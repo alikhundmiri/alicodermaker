@@ -27,6 +27,7 @@ document.write(`
 					<td class="table-date">21 feb</td>
 					<td class="table-link"><a href="/weekly-income-calculator">Weekly Income Calculator</a></td>
 				</tr>
+				<tr class="blank_row"></tr>
 				<tr>
 					<td class="table-date">19 dec</td>
 					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically.</a></td>
