@@ -25,7 +25,7 @@ document.write(`
 			<tbody>
 				<tr>
 					<td class="table-date">21 feb</td>
-					<td class="table-link"><a href="/weekly-income-calculator">Weekly Income Calculator</a></td>
+					<td class="table-link"><a href="/hourly-income-calculator">Weekly Income Calculator</a></td>
 				</tr>
 				<tr class="blank_row"></tr>
 				<tr>
