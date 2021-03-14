@@ -618,8 +618,8 @@
 	/*
 	TODO
 	1. Add 'clear button' to remove all keywords from table and memory
-	2. Using the rel score... to dynamically Highlight table row in gradient of yellow
-	3. Add Splash Screen to explain how to use this tool
+	2. DONE Using the rel score... to dynamically Highlight table row in gradient of yellow
+	3. DONE Add Splash Screen to explain how to use this tool
 	4. Should we disable findlongtail button after initial search?
 	*/
 	
@@ -629,7 +629,69 @@
 	// });
 
 	/*without jQuery (doesn't work in older IEs)*/
+	
 	var past_keywords = [];
+
+	// result_keywords is an array of object.
+	/* 
+	result_keywords = [
+	{relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
+	{relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
+	{relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
+	{relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
+	]
+	*/
+	var result_keywords = new Array();
+	var queries = new Array();
+
+	/*
+	var result_keywords = [
+	{relevance: 1252, repeat_number: 0, keyword: "love songs hindi status", parent_keyword: "lovesongs hindi s"},
+	{relevance: 1251, repeat_number: 0, keyword: "love songs hindi sharechat", parent_keyword: "lovesongs hindi s"},
+	{relevance: 1250, repeat_number: 0, keyword: "love songs hindi status download", parent_keyword: "lovesongs hindi s"},
+	{relevance: 650, repeat_number: 0, keyword: "love songs hindi songs", parent_keyword: "lovesongs hindi s"},
+	{relevance: 601, repeat_number: 0, keyword: "love songs hindi sad", parent_keyword: "lovesongs hindi s"},
+	{relevance: 600, repeat_number: 0, keyword: "love songs hindi status for whatsapp", parent_keyword: "lovesongs hindi s"},
+	{relevance: 551, repeat_number: 0, keyword: "love songs hindi short video", parent_keyword: "lovesongs hindi s"},
+	{relevance: 550, repeat_number: 0, keyword: "love songs hindi shahrukh khan", parent_keyword: "lovesongs hindi s"},
+	{relevance: 1250, repeat_number: 0, keyword: "love songs hindi female", parent_keyword: "lovesongs hindi f"},
+	{relevance: 1000, repeat_number: 0, keyword: "love songs hindi for him", parent_keyword: "lovesongs hindi f"},
+	{relevance: 750, repeat_number: 0, keyword: "love songs hindi female version", parent_keyword: "lovesongs hindi f"},
+	{relevance: 601, repeat_number: 0, keyword: "love songs hindi for whatsapp status", parent_keyword: "lovesongs hindi f"},
+	{relevance: 600, repeat_number: 0, keyword: "love songs hindi for status", parent_keyword: "lovesongs hindi f"},
+	{relevance: 552, repeat_number: 0, keyword: "love songs hindi for her", parent_keyword: "lovesongs hindi f"},
+	{relevance: 551, repeat_number: 0, keyword: "love songs hindi fast", parent_keyword: "lovesongs hindi f"},
+	{relevance: 550, repeat_number: 0, keyword: "love songs hindi for husband", parent_keyword: "lovesongs hindi f"},
+	{relevance: 1250, repeat_number: 0, keyword: "love songs hindi dj", parent_keyword: "lovesongs hindi d"},
+	{relevance: 700, repeat_number: 0, keyword: "love songs hindi dj download", parent_keyword: "lovesongs hindi d"},
+	{relevance: 601, repeat_number: 0, keyword: "love songs hindi dj remix", parent_keyword: "lovesongs hindi d"},
+	{relevance: 600, repeat_number: 0, keyword: "love songs hindi download", parent_keyword: "lovesongs hindi d"},
+	{relevance: 553, repeat_number: 0, keyword: "love songs hindi download mp3", parent_keyword: "lovesongs hindi d"},
+	{relevance: 552, repeat_number: 0, keyword: "love songs hindi download 2020", parent_keyword: "lovesongs hindi d"},
+	{relevance: 551, repeat_number: 0, keyword: "love songs hindi download 2019", parent_keyword: "lovesongs hindi d"},
+	{relevance: 550, repeat_number: 0, keyword: "love songs hindi download mr jatt", parent_keyword: "lovesongs hindi d"},
+	{relevance: 950, repeat_number: 0, keyword: "love songs hindi punjabi", parent_keyword: "lovesongs hindi p"},
+	{relevance: 650, repeat_number: 0, keyword: "love songs hindi play online", parent_keyword: "lovesongs hindi p"},
+	{relevance: 601, repeat_number: 0, keyword: "love songs hindi punjabi download", parent_keyword: "lovesongs hindi p"},
+	{relevance: 600, repeat_number: 0, keyword: "love songs hindi pdf", parent_keyword: "lovesongs hindi p"},
+	{relevance: 553, repeat_number: 0, keyword: "love songs hindi padal", parent_keyword: "lovesongs hindi p"},
+	{relevance: 552, repeat_number: 0, keyword: "hindi love songs please", parent_keyword: "lovesongs hindi p"},
+	{relevance: 551, repeat_number: 0, keyword: "hindi love songs playlist", parent_keyword: "lovesongs hindi p"},
+	{relevance: 550, repeat_number: 0, keyword: "hindi love songs play", parent_keyword: "lovesongs hindi p"},
+	{relevance: 601, repeat_number: 0, keyword: "90s love songs hindi", parent_keyword: "s lovesongs hindi"},
+	{relevance: 600, repeat_number: 0, keyword: "hindi love songs starting with s", parent_keyword: "s lovesongs hindi"},
+	{relevance: 601, repeat_number: 0, keyword: "hindi love songs d.j mix", parent_keyword: "d lovesongs hindi"},
+	{relevance: 600, repeat_number: 0, keyword: "hindi love songs d.j remix", parent_keyword: "d lovesongs hindi"},
+	{relevance: 1250, repeat_number: 0, keyword: "love songs hindi audio", parent_keyword: "lovesongs hindi a"},
+	{relevance: 1200, repeat_number: 0, keyword: "love songs hindi arijit singh", parent_keyword: "lovesongs hindi a"},
+	{relevance: 751, repeat_number: 0, keyword: "love songs hindi album", parent_keyword: "lovesongs hindi a"},
+	{relevance: 750, repeat_number: 0, keyword: "love songs hindi audio mp3", parent_keyword: "lovesongs hindi a"},
+	{relevance: 602, repeat_number: 0, keyword: "love songs hindi atif aslam", parent_keyword: "lovesongs hindi a"},
+	{relevance: 601, repeat_number: 0, keyword: "love songs hindi and punjabi", parent_keyword: "lovesongs hindi a"},
+	{relevance: 600, repeat_number: 0, keyword: "love songs hindi all time", parent_keyword: "lovesongs hindi a"},
+	{relevance: 550, repeat_number: 0, keyword: "love songs hindi arijit singh download", parent_keyword: "lovesongs hindi a"}]
+	*/
+
 
 	// Function to add H2 texts in textarea. 
 	function addH1(targ) {
@@ -659,7 +721,6 @@
 	// BEGIN KEYWORD GENERATOR SCRIPT
 	function startKeywordFinder(event, base=0) {
 
-		console.log(base)
 		/*get the keyword from text field*/
 		if (base){
 			var base_keyword = base;
@@ -685,17 +746,42 @@
 			// GET ALL ALPHABETS, A TO Z,
 			for (var i = 97; i < 123; i++) {
 				// SEND IT TO KEYWORD COMBINER
-				keyword_combiner(i, base_keyword, longsearch);
+				queries.push(base_keyword + " " + String.fromCharCode(i));
+				queries.push(String.fromCharCode(i) + " " + base_keyword);
+				if (longsearch) {
+					queries.push(base_keyword + " " + String.fromCharCode(i) + String.fromCharCode(i));
+					queries.push(String.fromCharCode(i) + String.fromCharCode(i) + " " + base_keyword);
+				}
 			};
+
+			$.when(queries.forEach(query => send_api_request(query))).then(function() {
+				console.log(result_keywords);
+				console.log(result_keywords.length);
+
+				console.log("past_keywords: " + past_keywords);
+
+				// sort_table();
+				sort_array(result_keywords);
+
+				// add to table
+				add_to_table(result_keywords);
+
+				console.log('base_keyword: ' + base_keyword);
+				console.log(result_keywords.length);
+			});
+			
+
 			console.log("Finish");
 		};
-		// console.log("past_keywords: " + past_keywords)
-		// console.log('base_keyword: ' + base_keyword)
 
+		
 		// code here to re-arrange table wrt rel score.
-		sort_table();
 		event.preventDefault();
 	};
+
+	// $.when().then(function( x ) {
+	// 	alert( "I fired immediately" );
+	// });
 
 	// CREATE NEW KEYWORD BY ADDING ALPHABET IN FRONT AND END
 	function keyword_combiner(i, base_keyword, longsearch) {
@@ -730,9 +816,12 @@
 
 				for (var i = 0; i < jsondata[1].length; i++) {
 					// jsondata[1][i]
+					// console.log(jsondata);
 					let found_keyword_rel = (jsondata[4]['google:suggestrelevance'][i]);
 					let found_keyword = (jsondata[1][i]);
-					createNewEntry(found_keyword_rel, found_keyword);
+					// 
+					addToArray(found_keyword_rel, found_keyword, keyword);
+					// createNewEntry(found_keyword_rel, found_keyword);
 					// console.log(found_keyword_rel, found_keyword);
 
 				}
@@ -741,16 +830,65 @@
 		});
 	}
 
+	// result_keywords = [
+	// {relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
+	// ref: https://stackoverflow.com/questions/1290131/how-to-create-an-array-of-object-literals-in-a-loop
+	// add a new object with entry
+	function addToArray(rel, keyword, parent_keyword){
+		let new_entry = {
+			relevance : rel,
+			repeat_number : 0,
+			keyword : keyword, 
+			parent_keyword : parent_keyword
+		}
+
+		result_keywords.push(new_entry);
+		// console.log(new_entry);
+		// console.log(result_keywords.length);
+		// console.log(keyword);
+	}
+	
+	// function to start sorting the array result_keywords
+	function sort_array(result_keywords){
+		console.log(' --- start sorting array...');
+		console.log(result_keywords.length);
+		result_keywords.sort(compare);
+	}
+
+	// ref: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
+	// function to compare two objects, and move their order. basically this is sorting.
+	function compare(a,b){
+		// console.log('comparing' + a.relevance + " and " + b.relevance);
+		console.log(' --- compare aray...');
+		if (a.relevance > b.relevance) {
+			return -1;
+		}
+		if (a.relevance < b.relevance) {
+			return 1;
+		}
+		return 0;
+	}
+
+	// ADD KEYWORD TO TABLE
+	function add_to_table(result_keywords){
+		console.log(' --- Adding to table');
+		console.log(result_keywords.length);
+		result_keywords.forEach(function (arrayItem){
+			createNewEntry(arrayItem.relevance, arrayItem.keyword);				
+		});
+	}
+
 	// CREATE NEW TABLE ROW
 	function createNewEntry(rel, keyword){
+		console.log('in createNewEntry...');
+		console.log(rel, keyword);
 		/*Create a <div> node*/
 		var node = document.createElement("tr");
 
 		// rounding off rel
 		var rel_new = Math.ceil(rel/100)*100;
 
-		// node.setAttribute('class',`rel_${rel_new}`);
-
+		node.setAttribute('rel_score',`${rel}`);
 		// create a seperate class fro each rel_new range.
 		// with differentshade of color. Pick 20.
 
@@ -771,6 +909,47 @@
 
 		/* Append this node with the list: id="list-of-keywords" */
 		document.getElementById("list-of-keywords-body").appendChild(node);
+	}
+
+	//ref: https://www.w3schools.com/howto/howto_js_sort_table.asp
+	function sort_table(){
+		console.log('sort_table');
+		var table, rows, switching, i, x, y, shouldSwitch;
+		table = document.getElementById("list-of-keywords");
+		switching = true;
+
+		/* Make a loop that will continue until no switching has been done: */
+		while (switching) {
+			console.log('in switching');
+
+			switching = false;
+			rows = table.rows;
+			console.log('also switching');
+			for (i = 1; i < (rows.length - 1); i++) {
+				console.log(i);
+				shouldSwitch = false;
+				// get the rel_score 
+				x = rows[i].getAttribute("rel_score");
+				y = rows[i+1].getAttribute("rel_score");
+				console.log(x + " " + y);
+				// console.log(x + " - " + typeof parseInt(x) + ' | ' + y + " - " + typeof parseInt(y));
+
+				// check if two numbers should change places
+				if (parseInt(x)>parseInt(y)){
+			        // If so, mark as a switch and break the loop:
+			        shouldSwitch = true;
+			        break;
+			    }
+			}
+
+			if (shouldSwitch){
+				console.log('shouldSwitch');
+				/* If a switch has been marked, make the switch and mark that a switch has been done: */
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;				
+			}
+		}
+
 	}
 	// Check for form submit. and initiate StartKeywordFinder
 	const form = document.getElementById('keyword-form')
@@ -797,6 +976,19 @@
 
 </script>
 <!-- END of The MVP -->
+<!-- 
+current flow
+1. forloop: append and prefix a-z
+	2. api fetch
+	3. add new keywords to table
+4. sort table
 
+New flow idea
+1. forloop: append and prefix a-z
+	2. api fetch
+	3. add new keyword to array
+4. sort array
+5. add all keywords to table
+-->
 </body>
 </html>
