@@ -33,8 +33,8 @@
 		/*this disables the scrolling effect */
 		html, body {
 			margin: 0;
-			height: 100%;
-			overflow: hidden;
+			/*height: 100%;*/
+			/*overflow: hidden;*/
 			color: white;
 			background-color: #232933;
 		}
@@ -107,67 +107,20 @@
 			vertical-align: center;
 		}
 
-		.rel_300 {
-			background-color: #E0D0C1;
-			color: #121717;
+		.usp{
+			background-color: #1a1e27;
+			margin-top: 20px;
+			padding: 20px;
+			border-radius: 10px;
 		}
 
-		.rel_400 {
-			background-color: #DDCBBB;
-			color: #121717;
+		.start-form{
+
 		}
 
-		.rel_500 {
-			background-color: #D6C1AE;
-			color: #121717;
+		.contact-form{
+
 		}
-
-		.rel_600 {
-			background-color: #CFB7A0;
-			color: #121717;
-		}
-
-		.rel_700 {
-			background-color: #C8AD92;
-			color: #121717;
-		}
-
-		.rel_800 {
-			background-color: #C1A285;
-			color: #121717;
-		}
-
-		.rel_900 {
-			background-color: #BB9877;
-			color: #F7F9F9;
-		}
-
-		.rel_1000 {
-			background-color: #B48E6A;
-			color: #F7F9F9;
-		}
-
-		.rel_1100 {
-			background-color: #AD835C;
-			color: #F7F9F9;
-		}
-
-		.rel_1200 {
-			background-color: #A37952;
-			color: #F7F9F9;
-		}
-
-		.rel_1300 {
-			background-color: #956F4B;
-			color: #F7F9F9;
-		}
-
-		.rel_1400 {
-			background-color: #886544;
-			color: #F7F9F9;
-		}
-
-
 	</style>
 
 	<!-- 
@@ -229,13 +182,13 @@
 <body>
 
 	<div class="container h-100">
-		<div class="row align-items-center h-100">
+		<div class="row align-items-center h-100" style="margin-top: 100px">
 			<div class="col-12 mx-auto">
-				<h1  style="text-align: center;" class="cover-heading">Write articles <span style="color: yellow">people are searching on Google</span> with jelly<span style="color: yellow">Writer</span></h1>	
+				<h1  style="text-align: center;" class="cover-heading">Write articles <span style="color: yellow">people are searching on Google</span></h1>
 				<br>
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12" style="text-align: center;">
-						<form id="userKeywordForm">
+						<form id="userKeywordForm" class="start-form">
 							<div class="form-group">
 								<input class="form-control form-control-lg" id="topicField" type="text" placeholder="Enter your Article/Blog/Landing page Topic" autofocus="autofocus">
 							</div>
@@ -252,8 +205,26 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-12">
-						<!-- three step explanation here -->
+				</div>
+				<div class="usp">
+					<div class="row">
+						<div class="col-12" style="text-align: center;">
+							<h2>How to use</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-12" style="text-align: center; padding: 20px">
+							<p class="lead">Ask yourself</p>
+							<h3>Do people want to read my article?</h3>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12" style="text-align: center; padding: 20px">
+							<p class="lead">Find out</p>
+							<h3>What else do they want to know?</h3>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12" style="text-align: center; padding: 20px">
+							<p class="lead">Keep them on your page</p>
+							<h3>Expand your article without Jarjon</h3>
+						</div>
 					</div>
 				</div>
 			</div>
