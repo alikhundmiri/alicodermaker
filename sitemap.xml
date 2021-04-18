@@ -215,6 +215,11 @@
 		<loc>https://www.alicodermaker.com/2020_04_08</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+
+		<loc>https://www.alicodermaker.com/zikr</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+		
 	</url>
 
 </urlset> 
