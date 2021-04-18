@@ -105,6 +105,13 @@
 		calculatePahar(sunrise, sunset);
 
 		var canvas = document.getElementById("canvas");
+
+		let canvas_size = Math.min(window.innerWidth, window.innerHeight)
+
+		canvas.setAttribute('width', canvas_size);
+		canvas.setAttribute('height', canvas_size);
+
+
 		var ctx = canvas.getContext("2d");
 		var radius = canvas.height / 2;
 		ctx.translate(radius,radius); //move the cursur to the center of circle
