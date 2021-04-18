@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<!-- Primary Meta Tags -->
+	<title>Pahar Clock</title>
+	<meta name="title" content="Pahar Clock">
+	<meta name="description" content="Pahar Clock">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.alicodermaker.com/">
+	<meta property="og:title" content="Pahar Clock">
+	<meta property="og:description" content="Pahar Clock">
+	<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.alicodermaker.com/">
+	<meta property="twitter:title" content="Pahar Clock">
+	<meta property="twitter:description" content="Pahar Clock">
+	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<!-- Custom styles for this template -->
+	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
+	<script src="https://AliCoderMaker.com/header.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-98290233-2');
+	</script>
+</head>
+<body>
+	<div class="cover-container d-flex p-3 mx-auto flex-column">
+		<!-- <script src="https://AliCoderMaker.com/navbar.js"></script> -->
+
+		<main role="main" class="inner cover">
+			<br>
+			<h1 class="cover-heading">
+				<a data-toggle="collapse" href=".article-details" style="font-family: 'Roboto', sans-serif;">
+					<b data-toggle="tooltip" data-placement="top" title="Click title to toggle Date and read time">
+						Pahar Clock
+					</b>
+				</a>
+			</h1>
+			
+			<div class="collapse article-details">
+				
+				<p>Pahar clock</p>
+				<br><br>
+				<span><i>18th April 2021</i></span><br>
+				<span style="color: gray; font-size: 1rem;">A clock to show current pahar</span>
+				<br><br>
+			</div>
+
+			<div>
+				<canvas id="canvas" width="400" height="400" style="background-color:#fff"></canvas>
+			</div>
+
+			
+			
+		</main>
+
+		<!-- <script src="https://AliCoderMaker.com/footer.js"></script> -->
+
+	</div>
+	<script type="text/javascript">
+		
+		var sunrise = '5:57';
+		var sunset = '18:33';
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var radius = canvas.height / 2;
+		ctx.translate(radius,radius); //move the cursur to the center of circle
+		radius = radius*0.90; // to actually draw the circle, lets reduce the size of cicle.
+
+		// drawClock();
+
+		setInterval(drawClock, 1000);
+
+		/*
+		parameters for an arc
+		(center_x, center_y, radius, start_angle, end_angle) 
+
+		for start_angle and end_angle, 
+		- units are in radians 
+		- 0 is at the 3 o'clock
+
+		*/
+		function drawClock() {
+			drawFace(ctx, radius);
+			drawHours(ctx, radius);
+			drawSeconds(ctx, radius);
+			drawTime(ctx, radius);
+		}
+
+		function drawFace(ctx, radius) {
+			ctx.beginPath();
+			ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+			ctx.fillStyle = 'white';
+			ctx.fill();
+
+			var grad;
+
+			grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
+			grad.addColorStop(0, '#333');
+			grad.addColorStop(0.5, 'white');
+			grad.addColorStop(1, '#333');
+			ctx.strokeStyle = grad;
+			ctx.lineWidth = radius * 0.05;
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(0, 0, radius * 0.05, 0, 2 * Math.PI);
+			ctx.fillStyle = '#333';
+			ctx.fill();
+		}
+
+		function drawHours(ctx, radius) {
+			var ang;
+			var num;
+			var number_position_for_circumference = 0.90;
+
+			ctx.font = radius * 0.105 + "px arial";
+			ctx.textBaseline = 'middle';
+			ctx.textAlign = 'center';
+
+			for (num = 1; num < 25; num++) {
+				ang = num * Math.PI / 12; //get current number angle
+				ctx.rotate(ang); // rotate cursor direction to calculated angle
+				ctx.translate(0, -radius * number_position_for_circumference); //move the cursor
+				ctx.rotate(-ang);
+				ctx.fillText(num.toString(), 0,0);
+				ctx.rotate(ang);
+				ctx.translate(0, radius * number_position_for_circumference); //move the cursor back to center
+				ctx.rotate(-ang); 
+			}
+		}
+
+		function drawSeconds(ctx, radius) {
+			var ang;
+			var num;
+			var number_position_for_circumference = 0.4;
+
+			ctx.font = radius * 0.05 + "px arial";
+			ctx.textBaseline = 'middle';
+			ctx.textAlign = 'center';
+
+			for (num = 1; num < 61; num++){
+				ang = num * Math.PI /30;
+				ctx.rotate(ang);
+				ctx.translate(0, -radius * number_position_for_circumference);
+				ctx.rotate(-ang);
+
+				if (num % 5) {
+					// ---
+				} 
+				else{
+					ctx.fillText(num.toString(), 0, 0);
+
+				}
+				ctx.rotate(ang);
+				ctx.translate(0, radius * number_position_for_circumference);
+				ctx.rotate(-ang);
+			}
+		}
+		function drawTime(ctx, radius) {
+
+			var now = new Date(); // get current time
+			var hour = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+
+			// calculate hour 
+			hour = hour%12;
+			hour = (hour*Math.PI/6) + (minute*Math.PI/(6*60)) + (second*Math.PI/(6*3600));
+			drawHand(ctx, hour, radius*0.8, radius*0.04);
+
+			// calculate minute
+			// minute = (minute*Math.PI/30) + (second*Math.PI/(30*60));
+			// drawHand(ctx, minute, radius*0.8, radius*0.07);
+
+			// calculate second
+			second = (second*Math.PI/30);
+			drawHand(ctx, second, radius*0.4, radius*0.005);
+		}
+
+		// draw hand
+		function drawHand(ctx, pos, length, width) {
+			ctx.beginPath(); // start drawing
+			ctx.lineWidth = width; // set the width of each hand
+			ctx.lineCap = 'round'; // set end type of hand
+			ctx.moveTo(0,0); // move the origin
+			ctx.rotate(pos); // rotate the cursor to angle
+			ctx.lineTo(0, -length); // draw the line from (0,0) to (0,-length). Not sure why it's negative
+			ctx.stroke();
+			ctx.rotate(-pos);
+		}
+	</script>
+	<a target="_blank" rel="noopener" class="levelsio-by" href="https://twitter.com/intent/follow?screen_name=AliCoderMaker"><img src="https://alicodermaker.com/images/ali-dp-2020_100x100.png" /><p>by AliCoderMaker</p></a>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
