@@ -100,17 +100,19 @@
 
 		const day_color = '#ffff70';
 		const night_color = '#e3d0f1';
-		// const bayan_pahar_color = zikr_pahar_color;
 
-		calculatePahar(sunrise, sunset);
+		// I am adding this moving_constant number to the angle to shift the clock by 180 deg. not sure why this number works, but I found this number with trial and error.
 
+		const moving_constant = 160.225;
+
+		// get the size of screen and set the min of height and width... set it as canvas size
 		var canvas = document.getElementById("canvas");
-
 		let canvas_size = Math.min(window.innerWidth, window.innerHeight)
 
 		canvas.setAttribute('width', canvas_size);
 		canvas.setAttribute('height', canvas_size);
 
+		calculatePahar(sunrise, sunset);
 
 		var ctx = canvas.getContext("2d");
 		var radius = canvas.height / 2;
@@ -268,7 +270,8 @@
 			for (num = 1; num < 25; num++) {
 				ctx.beginPath();
 
-				ang = num * Math.PI / 12; //get current number angle
+				// add moving_constant below to brackets to move numbers by 180deg
+				ang = (num * Math.PI / 12); //get current number angle
 				ctx.rotate(ang); // rotate cursor direction to calculated angle
 				ctx.translate(0, -radius * number_position_for_circumference); //move the cursor
 				ctx.rotate(-ang);
@@ -317,14 +320,14 @@
 			// calculate hour 
 			hour = hour%24;
 			hour = (hour*Math.PI/12) + (minute*Math.PI/(12*60)) + (second*Math.PI/(12*3600));
-			drawHand(ctx, hour, radius*0.8, radius*0.04);
+			drawHand(ctx, hour, radius*0.9, radius*0.01);
 
 			// calculate minute
 			// minute = (minute*Math.PI/30) + (second*Math.PI/(30*60));
 			// drawHand(ctx, minute, radius*0.8, radius*0.07);
 
 			// calculate second
-			second = (second*Math.PI/30);
+			second = ((second+1)*Math.PI/30);
 			drawHand(ctx, second, radius * 0.37, radius * 0.005);
 
 			// draw the small circle in the middle
