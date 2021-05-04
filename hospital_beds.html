@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<!-- Primary Meta Tags -->
+	<title>Copy Current Timestamp</title>
+	<meta name="title" content="Copy Current Timestamp">
+	<meta name="description" content="Copy Current Timestamp">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.alicodermaker.com/">
+	<meta property="og:title" content="Copy Current Timestamp">
+	<meta property="og:description" content="Copy Current Timestamp">
+	<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.alicodermaker.com/">
+	<meta property="twitter:title" content="Copy Current Timestamp">
+	<meta property="twitter:description" content="Copy Current Timestamp">
+	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<!-- Custom styles for this template -->
+	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
+	<script src="https://AliCoderMaker.com/header.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-98290233-2');
+	</script>
+</head>
+<body>
+	<div class="cover-container d-flex p-3 mx-auto flex-column">
+		<script src="https://AliCoderMaker.com/navbar.js"></script>
+
+		<main role="main" class="inner cover">
+			<br>
+			<h1 class="cover-heading">
+				<a data-toggle="collapse" href=".article-details" style="font-family: 'Roboto', sans-serif;">
+					<b data-toggle="tooltip" data-placement="top" title="Click title to toggle Date and read time">
+						Copy Current Timestamp
+					</b>
+				</a>
+			</h1>
+			
+			<div class="collapse article-details">
+				
+				<p>Copy current time</p>
+				<br><br>
+				<span><i>25th April 2021</i></span><br>
+				<span style="color: gray; font-size: 1rem;">Read time: About [time] minutes, or an average [singer name] song</span>
+				<br><br>
+			</div>
+
+			<div style="text-align: center;">
+				<br>
+				<span id="time-date"></span>
+				<br>
+				<br>
+				<small style="color: grey" id="alert-text"></small>
+				<br>
+				<button onclick="runFunction()" type="button" class="btn btn-primary">Run Function</button>
+
+			</div>
+
+			
+			<script type="text/javascript">
+
+
+
+				function runFunction() {
+					
+					let home_url = 'http://164.100.112.24/SpringMVC/Hospital_Beds_Statistic_Bulletin_citizen.htm'
+					let hospital_url = 'http://164.100.112.24/SpringMVC/getHospital_Beds_Status_Citizen.htm' 
+					
+					let headers = new Headers();
+
+					headers.append('Content-Type', 'application/json');
+					headers.append('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9')
+					headers.append('Accept-Encoding', 'gzip, deflate')
+					headers.append('Accept-Language', 'en-GB,en;q=0.9,en-US;q=0.8,hi;q=0.7')
+					headers.append('Cache-Control', 'no-cache')
+					headers.append('Connection', 'keep-alive')
+					headers.append('Content-Length', '10')
+					headers.append('Content-Type', 'application/x-www-form-urlencoded')
+					headers.append('Cookie', 'JSESSIONID=D737580A5EA3D3100F2CBBB37C1860D2')
+					headers.append('Host', '164.100.112.24')
+					headers.append('Origin', 'http://164.100.112.24')
+					headers.append('Pragma', 'no-cache')
+					headers.append('Referer', 'http://164.100.112.24/SpringMVC/Hospital_Beds_Statistic_Bulletin_citizen.htm')
+					headers.append('Upgrade-Insecure-Requests', '1')
+					headers.append('User-Agent', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36')
+
+					var formData = new FormData();
+
+
+					formData.append('hospital', 'G');
+					// this is not working
+					
+					fetch(hospital_url,  {
+						method: 'POST',
+						body: formData,
+						credentials: "include",
+						headers: headers
+					})
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+					})
+					.catch(error => {
+						console.log(error);
+					});
+
+
+				}
+			</script>
+
+		</main>
+
+		<!-- <script src="https://AliCoderMaker.com/footer.js"></script> -->
+	</div>
+	<a target="_blank" rel="noopener" class="levelsio-by" href="https://twitter.com/intent/follow?screen_name=AliCoderMaker"><img src="https://alicodermaker.com/images/ali-dp-2020_100x100.png" /><p>by AliCoderMaker</p></a>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

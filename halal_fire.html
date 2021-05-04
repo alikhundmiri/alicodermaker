@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Halal Fire</title>
+</head>
+<body>
+
+	<h1>Halal Fire</h1>
+
+	<p>Age: </p>
+	<!-- <form style="width: 100%" id="keyword-form">
+		<div class="input-group mb-3">
+			<input autocomplete="off" class="form-control" id="id_keyword" type="text" name="search" placeholder="Enter Keyword" aria-label="Seed Keywords" aria-describedby="basic-addon2">
+
+			<div class="input-group-append">
+				<button id="findLongtailButton" class="btn btn-secondary" type="submit">Find Longtail</button>
+			</div>
+		</div>
+		<div id ="form_errors" style="color: red; font-size: 1rem"></div>
+	</form> -->
+
+	<script type="text/javascript">
+		window.onload = function() {
+
+			var investment = 800;
+			var annualRate = 2;
+			var monthlyRate = annualRate / 12 / 100;
+			var years = 30;
+			var months = years * 12;
+			var futureValue = 0;
+			var finalfutureValue = 0;
+
+			finalfutureValue = investment * (Math.pow(1 + monthlyRate, months) - 1) / monthlyRate;
+			console.log(finalfutureValue);
+
+			for ( i = 1; i <= months; i++ ) {
+				futureValue = (futureValue + investment) * (1 + monthlyRate);
+				console.log(futureValue);
+			}
+			console.log(finalfutureValue);
+			
+			/*
+			A	=	final amount
+			P	=	initial principal balance
+			r	=	interest rate
+			n	=	number of times interest applied per time period
+			t	=	number of time periods elapsed
+			*/
+		}
+
+	</script>
+</body>
+</html>

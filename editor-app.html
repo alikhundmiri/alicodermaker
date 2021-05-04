@@ -643,8 +643,9 @@
 	*/
 	var result_keywords = new Array();
 	var queries = new Array();
+	var prefix_terms = ['{} vs ', '{} or ', '{}']
 
-	/*
+	
 	var result_keywords = [
 	{relevance: 1252, repeat_number: 0, keyword: "love songs hindi status", parent_keyword: "lovesongs hindi s"},
 	{relevance: 1251, repeat_number: 0, keyword: "love songs hindi sharechat", parent_keyword: "lovesongs hindi s"},
@@ -690,7 +691,7 @@
 	{relevance: 601, repeat_number: 0, keyword: "love songs hindi and punjabi", parent_keyword: "lovesongs hindi a"},
 	{relevance: 600, repeat_number: 0, keyword: "love songs hindi all time", parent_keyword: "lovesongs hindi a"},
 	{relevance: 550, repeat_number: 0, keyword: "love songs hindi arijit singh download", parent_keyword: "lovesongs hindi a"}]
-	*/
+	
 
 
 	// Function to add H2 texts in textarea. 
@@ -748,6 +749,8 @@
 				// SEND IT TO KEYWORD COMBINER
 				queries.push(base_keyword + " " + String.fromCharCode(i));
 				queries.push(String.fromCharCode(i) + " " + base_keyword);
+				
+				for 
 				if (longsearch) {
 					queries.push(base_keyword + " " + String.fromCharCode(i) + String.fromCharCode(i));
 					queries.push(String.fromCharCode(i) + String.fromCharCode(i) + " " + base_keyword);
@@ -830,8 +833,6 @@
 		});
 	}
 
-	// result_keywords = [
-	// {relevance=100, repeat_number=0, keyword='keyword string', parent_keyword='parent keyword string'},
 	// ref: https://stackoverflow.com/questions/1290131/how-to-create-an-array-of-object-literals-in-a-loop
 	// add a new object with entry
 	function addToArray(rel, keyword, parent_keyword){

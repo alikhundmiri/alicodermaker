@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<!-- Primary Meta Tags -->
+	<title>Copy Current Timestamp</title>
+	<meta name="title" content="Copy Current Timestamp">
+	<meta name="description" content="Copy Current Timestamp">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.alicodermaker.com/">
+	<meta property="og:title" content="Copy Current Timestamp">
+	<meta property="og:description" content="Copy Current Timestamp">
+	<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.alicodermaker.com/">
+	<meta property="twitter:title" content="Copy Current Timestamp">
+	<meta property="twitter:description" content="Copy Current Timestamp">
+	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+	<!-- Custom styles for this template -->
+	<link href="https://www.AliCoderMaker.com/cover.css" rel="stylesheet">
+	<script src="https://AliCoderMaker.com/header.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98290233-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-98290233-2');
+	</script>
+</head>
+<body>
+	<div class="cover-container d-flex p-3 mx-auto flex-column">
+		<script src="https://AliCoderMaker.com/navbar.js"></script>
+
+		<main role="main" class="inner cover">
+			<br>
+			<h1 class="cover-heading">
+				<a data-toggle="collapse" href=".article-details" style="font-family: 'Roboto', sans-serif;">
+					<b data-toggle="tooltip" data-placement="top" title="Click title to toggle Date and read time">
+						Copy Current Timestamp
+					</b>
+				</a>
+			</h1>
+			
+			<div class="collapse article-details">
+				
+				<p>Copy current time</p>
+				<br><br>
+				<span><i>25th April 2021</i></span><br>
+				<span style="color: gray; font-size: 1rem;">Read time: About [time] minutes, or an average [singer name] song</span>
+				<br><br>
+			</div>
+
+			<div style="text-align: center;">
+				<br>
+				<span id="time-date"></span>
+				<br>
+				<br>
+				<small style="color: grey" id="alert-text"></small>
+				<br>
+				<button onclick="CopyToClipboard()" type="button" class="btn btn-primary">Copy timestamp</button>
+
+			</div>
+
+			
+			<script type="text/javascript">
+
+				setInterval(showTime, 1000);
+				function showTime() {
+					let time = new Date();
+
+					let months = new Array();
+
+					months[0] = "January";
+					months[1] = "February";
+					months[2] = "March";
+					months[3] = "April";
+					months[4] = "May";
+					months[5] = "June";
+					months[6] = "July";
+					months[7] = "August";
+					months[8] = "September";
+					months[9] = "October";
+					months[10] = "November";
+					months[11] = "December";
+
+					let month = months[time.getMonth()];
+					let date = time.getDate();
+					let hour = time.getHours();
+					let min = time.getMinutes();
+					let sec = time.getSeconds();
+
+					let nth = function(date) {
+						if (date > 3 && date < 21) return 'th';
+						switch (date % 10) {
+							case 1:  return "st";
+							case 2:  return "nd";
+							case 3:  return "rd";
+							default: return "th";
+						}
+					}
+
+					let am_pm = "AM";
+
+					if (hour > 12) {
+						hour -= 12;
+						am_pm = "PM";
+					}
+					if (hour == 0) {
+						hr = 12;
+						am_pm = "AM";
+					}
+
+					hour = hour < 10 ? "0" + hour : hour;
+					min = min < 10 ? "0" + min : min;
+					sec = sec < 10 ? "0" + sec : sec;
+
+					let currentTime = `${hour}:${min} ${am_pm} ${date}${nth(date)} ${month}`;
+					// let currentTime = hour + ":" + min + " "+ am_pm + " " + nth  +" " + month;
+
+					document.getElementById("time-date").innerHTML = currentTime;
+				}
+				showTime();
+
+				function CopyToClipboard() {
+					if (document.selection) {
+						var range = document.body.createTextRange();
+						range.moveToElementText(document.getElementById('time-date'));
+						range.select().createTextRange();
+						document.execCommand("copy");
+					} else if (window.getSelection) {
+						var range = document.createRange();
+						range.selectNode(document.getElementById('time-date'));
+						window.getSelection().addRange(range);
+						document.execCommand("copy");
+					}
+					alertUser("copied")
+
+				}
+
+				function alertUser(message) {
+					document.getElementById("alert-text").innerHTML = message;
+
+					setTimeout(function(){
+						document.getElementById("alert-text").innerHTML = '';
+					}, 5000);
+				}
+			</script>
+
+		</main>
+
+		<!-- <script src="https://AliCoderMaker.com/footer.js"></script> -->
+	</div>
+	<a target="_blank" rel="noopener" class="levelsio-by" href="https://twitter.com/intent/follow?screen_name=AliCoderMaker"><img src="https://alicodermaker.com/images/ali-dp-2020_100x100.png" /><p>by AliCoderMaker</p></a>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
