@@ -1,32 +1,32 @@
 <!doctype html>
-<html lang="en">
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<!-- Primary Meta Tags -->
-	<title>Hourly Income calculator</title>
-	<meta name="title" content="Hourly Income calculator">
-	<meta name="description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
+		<!-- Primary Meta Tags -->
+		<title>Hourly Income calculator</title>
+		<meta name="title" content="Hourly Income calculator">
+		<meta name="description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://www.alicodermaker.com/hourly-income-calculator">
-	<meta property="og:title" content="Hourly Income calculator">
-	<meta property="og:description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
-	<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://www.alicodermaker.com/hourly-income-calculator">
+		<meta property="og:title" content="Hourly Income calculator">
+		<meta property="og:description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
+		<!-- <meta property="og:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
 
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://www.alicodermaker.com/hourly-income-calculator">
-	<meta property="twitter:title" content="Hourly Income calculator">
-	<meta property="twitter:description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
-	<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
-	<style>
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://www.alicodermaker.com/hourly-income-calculator">
+		<meta property="twitter:title" content="Hourly Income calculator">
+		<meta property="twitter:description" content="I didn't know what my hourly rate was. So I made this calculator. More update to follow soon.">
+		<!-- <meta property="twitter:image" content="https://www.AliCoderMaker.com/images/AliCoderMaker.png"> -->
+		<style>
 		.bd-placeholder-img {
 			font-size: 1.125rem;
 			text-anchor: middle;
@@ -41,32 +41,62 @@
 				font-size: 3.5rem;
 			}
 		}
+
+		.custom-box{
+			/*border: 1px solid gray;*/
+			background-color: whitesmoke;
+			border-radius: 10px; 
+			padding: 20px;
+			margin-bottom: 10px;
+		}
+		.custom-box-error{
+			border: 1px solid red;
+			background-color: lightpink;
+			box-shadow: 1px 1px 2px red, 0 0 25px palevioletred, 0 0 5px orangered;
+		}
 	</style>
 	
 
 	<script type="text/javascript">
+
+		var runBoth = function (event) {
+			calculateHourlyRate();
+			calculateInvestment();
+		}
+
 		document.addEventListener('DOMContentLoaded', function(){ 
+			document.getElementById("id_monthlyIncome").focus();
+			document.getElementById("custom-box-investment-result").style.visibility = "gone";
+			// add focus on monthly income field on page open 
 
 			var monthlyIncome = document.getElementById("id_monthlyIncome");
-			monthlyIncome.addEventListener('keyup', function(){
-				// console.log(document.forms["myForm"]["monthlyIncome"].value);
-				calculate();
-			});
+			monthlyIncome.addEventListener('keyup', runBoth, false);
+			monthlyIncome.addEventListener('change', runBoth, false);
 
 			var dailyWorkHours = document.getElementById("id_dailyWorkHours");
-			dailyWorkHours.addEventListener('keyup', function(){
-				calculate();
-			});
+			dailyWorkHours.addEventListener('keyup', runBoth, false);
+			dailyWorkHours.addEventListener('change', runBoth, false);
 
 			var workingDayPerWeek = document.getElementById('id_workingDayPerWeek');
-			workingDayPerWeek.addEventListener('keyup', function(){
-				calculate();
-			});
+			workingDayPerWeek.addEventListener('keyup', runBoth, false);
+			workingDayPerWeek.addEventListener('change', runBoth, false);
+
+			var dailyStockGain = document.getElementById('id_dailyStockGain');
+			dailyStockGain.addEventListener('keyup', runBoth, false);
+			dailyStockGain.addEventListener('change', runBoth, false);
+
+			var amountInvested = document.getElementById('id_amountInvested');
+			amountInvested.addEventListener('keyup', runBoth, false);
+			amountInvested.addEventListener('change', runBoth, false);
+
+			var currentValue = document.getElementById('id_currentValue');
+			currentValue.addEventListener('keyup', runBoth, false);
+			currentValue.addEventListener('change', runBoth, false);
 		});
 		// end of dom content load
 
 		// calculate function start
-		function calculate(){
+		function calculateHourlyRate(){
 
 			let income = Number(document.forms["myForm"]["monthlyIncome"].value);
 			let hours = Number(document.forms["myForm"]["dailyWorkHours"].value);
@@ -76,25 +106,104 @@
 
 			if (income <= 41666){
 				document.getElementById('form_errors').innerHTML = '';
+				document.getElementById('custom-box-salary').classList.remove("custom-box-error");
+
 			}
 
 			else if (income > 41666){
 				document.getElementById('form_errors').innerHTML = 'REMEMBER, You got to pay tax!';
+				document.getElementById('custom-box-salary').classList.remove("custom-box-error");
+
 			}
 
 			else if (income <= 0){
 				document.getElementById('form_errors').innerHTML = 'How the Fc*k are you earning in negative?';
 			}
 
-			let hourlyRate = income/(hours*days*4);
+			let hourlyRate = calculate(income, hours, days);
 
-			console.log(hourlyRate);
-			document.getElementById('id_hourlyRate').innerHTML = '₹' + Math.round(hourlyRate) + '/hour';
+			// console.log(hourlyRate);
+			document.getElementById('id_hourlyRate').innerHTML = formatIndianCurrency(Math.round(hourlyRate)) + '/hour';
+
+			document.getElementById('id_current_earning').innerHTML = '₹' + Math.round(hourlyRate) + '/hour';
+
+			// document.getElementById('id_working_days_per_week').innerHTML = days;
+			
+			// document.getElementById('id_working_hours_per_day').innerHTML = hours;
 
 		}
 		// calculate function end
 
+		// calculate invesment starts
+		function calculateInvestment() {
+			let income = Number(document.forms["myForm"]["monthlyIncome"].value);
+			let hours = Number(document.forms["myForm"]["dailyWorkHours"].value);
+			let days = Number(document.forms["myForm"]["workingDayPerWeek"].value);
 
+			let gain = Number(document.forms['investmentForm']['id_dailyStockGain'].value);
+			let current = Number(document.forms['investmentForm']['id_currentValue'].value);
+			let amount = Number(document.forms['investmentForm']['id_amountInvested'].value);
+
+			// replace gain and amount with 1. Average Returns.
+			// then use that to give user a range 
+
+			if (income < 1 || hours < 1 || days < 1) {
+				document.getElementById('custom-box-salary').classList.add("custom-box-error");
+				// document.getElementById('id_requiredStockInvestment').innerHTML = formatIndianCurrency(Math.round(suggested_investment));
+				// console.log("infinity")
+
+			} else if (gain < 1 || current < 1 || amount < 1) {
+				document.getElementById('custom-box-investment').classList.add("custom-box-error");
+
+			}else {
+				document.getElementById('custom-box-salary').classList.remove("custom-box-error");
+				document.getElementById('custom-box-investment').classList.remove("custom-box-error");
+
+				// console.log(income)
+				// what we do?
+
+				// if invested 10,000 and earning 400 per day.
+				
+				// hourly gain in 7 hours of a trading day
+				let hourlyGain = gain/7;
+				let daily_wage = calculate(income, hours, days);
+
+				let one_rupee_gain = (current-gain)/hourlyGain;
+				// console.log(one_rupee_gain);
+
+				let suggested_investment = one_rupee_gain*daily_wage;
+				// console.log(suggested_investment);
+				// if ( daily_wage > hourlyGain) {} else {}
+
+
+				document.getElementById('id_requiredStockInvestment').innerHTML = formatIndianCurrency(Math.round(suggested_investment));
+
+				// document.getElementById('id_increaseStockInvestment').innerHTML = '₹' + Math.round(hourlyGain) + '/hour';
+			}
+		}
+		// calculate invesment ends
+
+		function calculate(income, hours, days) {
+			return (income/(hours*days*4));
+		}
+
+		// this function takes number and gives currency formated added with ₹
+		function formatIndianCurrency(amount) {
+			var x=amount;
+			amount=amount.toString();
+			var afterPoint = '';
+			if(amount.indexOf('.') > 0)
+				afterPoint = amount.substring(amount.indexOf('.'),amount.length);
+			amount = Math.floor(amount);
+			amount=amount.toString();
+			var lastThree = amount.substring(amount.length-3);
+			var otherNumbers = amount.substring(0,amount.length-3);
+			if(otherNumbers != '')
+				lastThree = ',' + lastThree;
+			var res = "₹" + otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+
+			return res;
+		}
 	</script>
 
 	<!-- Custom styles for this template -->
@@ -134,9 +243,9 @@
 				<br><br>
 			</div>
 
-			<div>
+			<div class="custom-box" id="custom-box-salary">
 				<div style="padding: 50px">
-					<p style="font-size: 100px" id="id_hourlyRate" class="lead"> </p>
+					<p style="font-size: 100px; text-align:center;" id="id_hourlyRate" class="lead"> </p>
 				</div>
 
 
@@ -145,17 +254,17 @@
 					<div class="form-row">
 						<div class="form-group col-md-6 col-sm-6 col-xs-6">
 							<label for="id_monthlyIncome">Monthly Income</label>
-							<input class="form-control" id="id_monthlyIncome" type="text" name="monthlyIncome" placeholder="Enter your monthly Income">
+							<input class="form-control" id="id_monthlyIncome" type="number" name="monthlyIncome" placeholder="Enter your monthly Income">
 						</div>
 
 						<div class="form-group col-md-4 col-sm-6 col-xs-6">
 							<label for="id_dailyWorkHours">Daily Work Hours</label>
-							<input class="form-control" id="id_dailyWorkHours" type="text" name="dailyWorkHours" value=9>
+							<input class="form-control" id="id_dailyWorkHours" type="number" name="dailyWorkHours" value=9>
 						</div>
 
 						<div class="form-group col-md-2 col-sm-6 col-xs-6">
 							<label for="id_workingDayPerWeek">Days/Week</label>
-							<input class="form-control" id="id_workingDayPerWeek" type="text" name="workingDayPerWeek" value="5">
+							<input class="form-control" id="id_workingDayPerWeek" type="number" name="workingDayPerWeek" value="5">
 						</div>
 					</div>
 					<!-- new form end -->
@@ -163,6 +272,67 @@
 					<!-- <input type="submit" value="Submit"> -->
 					<div id ="form_errors" style="color: red; font-size: 1rem"></div>
 				</form>
+			</div>
+
+			<p style="margin-top: 50px; text-align:center; /*border-bottom: 1px solid gray;*/">Are you invested in Stocks?</p>
+
+			<div class="custom-box" id="custom-box-investment">
+				<form name="investmentForm" style="margin-top: 50px;">
+					<!-- new form start -->
+					<div class="form-row">
+						<div class="form-group col-md-6 col-sm-4 col-xs-4">
+							<label for="id_dailyStockGain">Your Daily P&L</label>
+							<input class="form-control" id="id_dailyStockGain" type="number" name="dailyStockGain" placeholder="How much did your investment gained/day?">
+						</div>
+
+						<div class="form-group col-md-3 col-sm-6 col-xs-6">
+							<label for="id_amountInvested">Amount Invested</label>
+							<input class="form-control" id="id_amountInvested" type="number" name="amountInvested" placeholder="13022" value="13022">
+						</div>
+
+						<div class="form-group col-md-3 col-sm-6 col-xs-6">
+							<label for="id_currentValue">Current Value</label>
+							<input class="form-control" id="id_currentValue" type="number" name="currentValue" placeholder="28016" value="28016">
+						</div>
+					</div>
+
+					<!-- <div class="form-row">
+						<div class="form-group col-md-6 col-sm-4 col-xs-4">
+							<label for="id_current_investment_value">Current Investment Value</label>
+							<input class="form-control" id="id_current_investment_value" type="number" name="currentValue" placeholder="28016" value="28016">
+						</div>
+
+						<div class="form-group col-md-4 col-sm-6 col-xs-6">
+							<label for="id_daily_returns_percentage">Avg Daily Returns (%)</label>
+							<input class="form-control" id="id_daily_returns_percentage" type="number" name="amountInvested" placeholder="0.91" value="0.91">
+						</div>
+
+						<div class="form-group col-md-3 col-sm-6 col-xs-6">
+						</div>
+					</div> -->
+					<!-- <input type="submit" value="Submit"> -->
+					<div id ="form_errors" style="color: red; font-size: 1rem"></div>
+
+				</form>
+				<!-- new form end -->
+			</div>
+
+			<div class="custom-box" id="custom-box-investment-result">
+				
+
+				<p style="text-align: center; padding-bottom: 30px; padding-top: 30px;">To earn <b id="id_current_earning"></b> from stock market you'll need to invest:</p>
+
+				<p style="font-size: 100px; text-align:center; padding-bottom: 50px;" id="id_requiredStockInvestment" class="lead"> </p>
+
+				<!-- <p style="font-size: 50px; text-align:center; padding-bottom: 20px; color: lightgrey;" id="id_increaseStockInvestment" class="lead"> </p> -->
+
+			</div>
+
+			<div class="custom-box">
+				<p style="margin-top: 20px; text-align:center; color: grey; font-size: 70%;">
+					<b>when it comes to stocks, I prefer to invest in limited companies.</b><br>
+					Ideally I intend to have equal investment in stocks and Mutual (index) funds. How ever, due to SIP on mutual funds, most of my investments are in mutual funds.
+				</p>
 			</div>
 
 
