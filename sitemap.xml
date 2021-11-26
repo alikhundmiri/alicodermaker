@@ -219,6 +219,11 @@
 		<loc>https://www.alicodermaker.com/zikr</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+
+		<loc>https://www.alicodermaker.com/expensive-stuff-worth-it</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+		
 		
 	</url>
 
