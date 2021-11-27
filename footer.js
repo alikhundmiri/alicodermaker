@@ -7,16 +7,16 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
+					<td class="table-date">27 nov</td>
+					<td class="table-link"><a href="Why-Consistency-is-Important-and-Difficult">Why Consistency is Important and Difficult</a></td>
+				</tr>
+				<tr>
+					<td class="table-date">26 nov</td>
+					<td class="table-link"><a href="expensive-stuff-worth-it">Is Expensive Stuff Worth it?</a></td>
+				</tr>
+				<tr>
 					<td class="table-date">15 feb</td>
 					<td class="table-link"><a href="content-creator-dtc-brand">Content Creator DTC Brand</a></td>
-				</tr>
-				<tr>
-					<td class="table-date">13 feb</td>
-					<td class="table-link"><a href="kyapakanahai">Kya Pakana Hai?</a></td>
-				</tr>
-				<tr>
-					<td class="table-date">31 jan</td>
-					<td class="table-link"><a href="wandavision-world-after-thanos">WandaVision - Building The World After Thanos</a></td>
 				</tr>
 			</tbody>
 		</table>
