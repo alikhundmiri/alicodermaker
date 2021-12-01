@@ -5,12 +5,15 @@ __pycache__/
 
 # C extensions
 *.so
+*.icloud
 
 food.html
+editor-app.html
 editor-mobile.html
 influencer-ads.html
+imperfect_page.html
 testing.html
-
+test1.html
 text.html
 
 template.html
