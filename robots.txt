@@ -1,4 +1,7 @@
-User-Agent: *
-Disallow: 
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
 
 Sitemap: https://www.alicodermaker.com/sitemap.xml
