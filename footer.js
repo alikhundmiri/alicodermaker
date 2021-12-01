@@ -7,6 +7,10 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
+					<td class="table-date">1 dec</td>
+					<td class="table-link"><a href="favourite-painters-part-1">Favourite Painters Part 1 - [Alex Venezia and Damian Lechoszest]</a></td>
+				</tr>
+				<tr>
 					<td class="table-date">28 nov</td>
 					<td class="table-link"><a href="mindset-problem-in-hyderabad-old-city">Mindset Problem in Hyderabad Old City</a></td>
 				</tr>
@@ -14,10 +18,7 @@ document.write(`
 					<td class="table-date">27 nov</td>
 					<td class="table-link"><a href="Why-Consistency-is-Important-and-Difficult">Why Consistency is Important and Difficult</a></td>
 				</tr>
-				<tr>
-					<td class="table-date">26 nov</td>
-					<td class="table-link"><a href="expensive-stuff-worth-it">Is Expensive Stuff Worth it?</a></td>
-				</tr>
+
 			</tbody>
 		</table>
 		<h5>Recommended</h5>
