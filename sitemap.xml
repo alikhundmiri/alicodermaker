@@ -3,235 +3,358 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 	<url>
-
 		<loc>https://www.alicodermaker.com/</loc>
 		<changefreq>Daily</changefreq>
 		<priority>0.6</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/acoustic-taylor-swift</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/apple-event-2020</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/competition-in-india</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/enjoying-paintings.html</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/entertainment-entertainment-aur-entertainment</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/filler-buster</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/instagram-guide-part-1</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/macro-changes-through-micro-situations</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/meeting-people-online</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/micro-wealth</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/morning-routines-anchor-events</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/move-into-wealth</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/my-plan-to-find-investable-companies</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/quality-versus-quantity.html</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/the-power-of-attention</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/the-problem-with-going-viral</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/the-rare-responsible-person</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/time-wasted-in-college</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/why-I-started-using-twitter</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/writing-in-art</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/youtube-essay-videos</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/ironing-the-day-schedule</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/bad-boy-billionaires</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/social-media-plan-for-indian-jewellers-part-1</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/started-coding-what-should-i-do-next</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/coco-loving-vincent</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/marag-recipe</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/curious-case-of-minimalism</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/caroline-konstnar</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>		
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/productivity-threshold</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/ipl-2020</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/old-money-dual-income</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/losing-wealth-for-marriage</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/shadi-invest</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/not-writing</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/text2html</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/belief</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://www.alicodermaker.com/shandaar-rant</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://alicodermaker.com/upstart-rant</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://alicodermaker.com/low-trust-in-indian-education-system</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/how-business-create-value</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/grow-on-instagram-fast-and-organically</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/alicodermakers-twitter-stats-2020</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>	
 		<loc>https://alicodermaker.com/wandavision-world-after-thanos</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-	
+	</url>
+
+	<url>
 		<loc>https://alicodermaker.com/bought-a-domain-but-too-lazy-to-build-the-idea</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/editor-intro</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/editor</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/kyapakanahai</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/content-creator-dtc-brand</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/daily-note-blog-chrome-extension</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://alicodermaker.com/hourly-income-calculator</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/2020_04_08</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/zikr</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/expensive-stuff-worth-it</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
+	</url>
+
+	<url>		
 		<loc>https://www.alicodermaker.com/Why-Consistency-is-Important-and-Difficult</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
+	</url>
 
+	<url>
 		<loc>https://www.alicodermaker.com/mindset-problem-in-hyderabad-old-city</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
-		
 	</url>
+
+	<url>
+		<loc>https://www.alicodermaker.com/painter-damian-lechoszest</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	
+	<url>
+		<loc>https://www.alicodermaker.com/painter-alex-venezia</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
 
 </urlset> 
