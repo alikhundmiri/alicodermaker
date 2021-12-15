@@ -7,6 +7,10 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
+					<td class="table-date">15 dec</td>
+					<td class="table-link"><a href="growing-on-twitter">Growing on Twitter - Tips from the Best</a></td>
+				</tr>
+				<tr>
 					<td class="table-date">1 dec</td>
 					<td class="table-link"><a href="favourite-painters-part-1">Favourite Painters Part 1 - [Alex Venezia and Damian Lechoszest]</a></td>
 				</tr>
@@ -14,11 +18,6 @@ document.write(`
 					<td class="table-date">28 nov</td>
 					<td class="table-link"><a href="mindset-problem-in-hyderabad-old-city">Mindset Problem in Hyderabad Old City</a></td>
 				</tr>
-				<tr>
-					<td class="table-date">27 nov</td>
-					<td class="table-link"><a href="Why-Consistency-is-Important-and-Difficult">Why Consistency is Important and Difficult</a></td>
-				</tr>
-
 			</tbody>
 		</table>
 		<h5>Recommended</h5>
@@ -29,6 +28,10 @@ document.write(`
 					<td class="table-link"><a href="/hourly-income-calculator">Hourly Income Calculator</a></td>
 				</tr>
 				<tr class="blank_row"></tr>
+				<tr>
+					<td class="table-date">27 nov</td>
+					<td class="table-link"><a href="Why-Consistency-is-Important-and-Difficult">Why Consistency is Important and Difficult</a></td>
+				</tr>
 				<tr>
 					<td class="table-date">19 dec</td>
 					<td class="table-link"><a href="/grow-on-instagram-fast-and-organically">Grow on Instagram Fast and Organically.</a></td>
