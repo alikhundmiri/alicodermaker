@@ -19,6 +19,31 @@ h1,h2,h3,h4,h5,h6{
   font-weight: 700!important;
   color: #191c1f;
 }
+
+h2,h3,h4,h5,h6{
+  margin-bottom: -0.5px;
+}
+
+h2{
+  padding-top: 20px;
+}
+
+h3{
+  padding-top: 15px;
+}
+
+h4{
+  padding-top: 10px;
+}
+
+h5{
+  line-height: 40px;
+  padding-top: 10px;
+}
+
+h6{
+  padding-top: 10px;
+}
 h1.thicker,h2.thicker,h3.thicker,h4.thicker,h5.thicker.thicker,h6.thicker{ 
   font-family: 'Roboto', sans-serif;
   font-weight: 900!important;
@@ -91,9 +116,6 @@ body {
   max-width: 42em;
 }
 
-h5{
-  line-height: 40px;
-}
 /*
  * Header
  */
