@@ -362,5 +362,11 @@
 		<priority>0.5</priority>
 	</url>
 
+	<url>
+		<loc>https://www.alicodermaker.com/Malayalam-Cinema-is-growing-Faster-than-Bollywood</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
 
 </urlset> 

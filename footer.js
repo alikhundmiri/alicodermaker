@@ -7,6 +7,10 @@ document.write(`
 		<table class="table table-borderless table-sm">
 			<tbody>
 				<tr>
+					<td class="table-date">19 dec</td>
+					<td class="table-link"><a href="Malayalam-Cinema-is-growing-Faster-than-Bollywood">Malayalam Cinema is growing Faster than Bollywood</a></td>
+				</tr>
+				<tr>
 					<td class="table-date">15 dec</td>
 					<td class="table-link"><a href="growing-on-twitter">Growing on Twitter - Tips from the Best</a></td>
 				</tr>
