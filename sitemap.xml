@@ -368,5 +368,11 @@
 		<priority>0.5</priority>
 	</url>
 
+	<url>
+		<loc>https://www.alicodermaker.com/socially-responsible-investing</loc>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
 
 </urlset> 
