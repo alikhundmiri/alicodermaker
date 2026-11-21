@@ -1,8 +1,9 @@
 {
-  // Personal Cloudflare account only. Fill in before deploying.
+  // Personal Cloudflare account (salikhundmiri). Deploy with: XDG_CONFIG_HOME=~/.config/wrangler-personal npx wrangler deploy
   "account_id": "a4e27944870356895763bab9907401a8",
   "name": "alicodermaker",
   "main": "worker/index.js",
+  "routes": [{ "pattern": "www.alicodermaker.com", "custom_domain": true }],
   "compatibility_date": "2026-04-01",
   "assets": {
     "directory": ".",
