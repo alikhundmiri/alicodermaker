@@ -1,0 +1,15 @@
+{
+  // Sign-in helper for the /admin editor (Sveltia CMS "Sign In with GitHub").
+  // Source: github.com/sveltia/sveltia-cms-auth @ 26b168a (MIT). Not auto-deployed.
+  // Deploy: cd cms-auth && XDG_CONFIG_HOME=~/.config/wrangler-personal npx wrangler deploy
+  // Secret (set once): GITHUB_CLIENT_SECRET via `wrangler secret put GITHUB_CLIENT_SECRET`
+  "account_id": "a4e27944870356895763bab9907401a8",
+  "name": "alicodermaker-cms-auth",
+  "main": "src/index.js",
+  "compatibility_date": "2026-04-01",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_DOMAINS": "www.alicodermaker.com",
+    "GITHUB_CLIENT_ID": "Iv23liifpXxVU56lWZS8"
+  }
+}

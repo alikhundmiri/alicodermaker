@@ -4,6 +4,8 @@ backend:
   name: github
   repo: alikhundmiri/alicodermaker
   branch: master
+  # "Sign In with GitHub" goes through our helper Worker (cms-auth/) + GitHub App alicodermaker-cms
+  base_url: https://alicodermaker-cms-auth.salikhundmiri.workers.dev
 
 media_folder: public/images/posts
 public_folder: /images/posts
