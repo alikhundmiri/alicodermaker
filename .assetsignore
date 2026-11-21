@@ -1,0 +1,11 @@
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+*.md
+.DS_Store
+upload_automation
+node_modules
+.wrangler
+*.icloud
+worker

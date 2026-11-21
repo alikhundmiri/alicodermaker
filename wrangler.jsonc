@@ -1,0 +1,13 @@
+{
+  // Personal Cloudflare account only. Fill in before deploying.
+  "account_id": "PERSONAL_ACCOUNT_ID",
+  "name": "alicodermaker",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-04-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
