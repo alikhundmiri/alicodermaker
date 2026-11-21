@@ -1,6 +1,6 @@
 {
   // Personal Cloudflare account only. Fill in before deploying.
-  "account_id": "PERSONAL_ACCOUNT_ID",
+  "account_id": "a4e27944870356895763bab9907401a8",
   "name": "alicodermaker",
   "main": "worker/index.js",
   "compatibility_date": "2026-04-01",
