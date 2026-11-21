@@ -1,0 +1,6 @@
+# Temporary: keeps the old Netlify copy identical until it is deleted (~26 Nov 2026).
+[build]
+  command = "npm run build"
+  publish = "dist"
+[build.environment]
+  NODE_VERSION = "22"

@@ -140,3 +140,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .wrangler/
+*.icloud
+node_modules/
+dist/
+.astro/

@@ -1,0 +1,79 @@
+---
+// Layout for new Markdown posts. Mirrors the look of the legacy pages
+// (public/blog_template.html) but ships no jQuery/Bootstrap JS.
+import { GA_ID, SITE } from '../site';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+  image?: string;
+  minutes: number;
+}
+const { title, description, date, slug, image, minutes } = Astro.props;
+const url = `${SITE}/${slug}`;
+const ogImage = image ? new URL(image, SITE).toString() : `${SITE}/images/AliCoderMaker.png`;
+const dateText = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{title}</title>
+	<meta name="title" content={title}>
+	<meta name="description" content={description}>
+	<link rel="canonical" href={url}>
+
+	<meta property="og:type" content="article">
+	<meta property="og:url" content={url}>
+	<meta property="og:title" content={title}>
+	<meta property="og:description" content={description}>
+	<meta property="og:image" content={ogImage}>
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content={url}>
+	<meta property="twitter:title" content={title}>
+	<meta property="twitter:description" content={description}>
+	<meta property="twitter:image" content={ogImage}>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,500;0,900;1,100;1,500;1,900&display=swap" rel="stylesheet">
+	<link href="/cover.css" rel="stylesheet">
+
+	<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+	<script is:inline define:vars={{ GA_ID }}>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', GA_ID);
+	</script>
+</head>
+<body>
+	<div class="cover-container d-flex p-3 mx-auto flex-column">
+		<nav class="navbar navbar-light" style="background-color: #F3ECD9;">
+			<h3 class="masthead-brand"><a class="navbar-brand" href="/">Ali <span style="color: #BE74A2">Coder</span> Maker</a></h3>
+			<div class="navbar-nav flex-row">
+				<a class="nav-item nav-link mr-3" href="/instagram-guide-part-1">Instagram Guide</a>
+				<a class="nav-item nav-link" href="https://calendly.com/alicodermaker/30min">Book 1-on-1 Session</a>
+			</div>
+		</nav>
+
+		<main role="main" class="inner cover">
+			<br>
+			<h1 class="cover-heading" style="font-family: 'Roboto', sans-serif;"><b>{title}</b></h1>
+			<div class="article-details">
+				<span><i>{dateText}</i></span><br>
+				<span style="color: gray; font-size: 1rem;">Read time: About {minutes} minute{minutes === 1 ? '' : 's'}.</span>
+				<br><br>
+			</div>
+			<article>
+				<slot />
+			</article>
+			<script is:inline src="/footer.js"></script>
+		</main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Editor for alicodermaker.com — open https://www.alicodermaker.com/admin
+# Saving a post commits it to GitHub; Cloudflare rebuilds the site.
+backend:
+  name: github
+  repo: alikhundmiri/alicodermaker
+  branch: master
+
+media_folder: public/images/posts
+public_folder: /images/posts
+
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Blog post
+    folder: src/content/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}{{draft | ternary(' (draft)', '')}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: "Short description (shows in Google & link previews)", widget: text }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: draft, label: "Draft (hidden from site)", widget: boolean, default: true }
+      - { name: image, label: "Share image (optional)", widget: image, required: false }
+      - { name: body, label: Post, widget: markdown }
