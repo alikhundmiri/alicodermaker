@@ -15,6 +15,9 @@ Hosted on Cloudflare (Worker `alicodermaker`, personal account). Built with Astr
 - `src/layouts/Post.astro` — template for new posts.
 - `worker/index.js` — redirects mixed-case URLs to lowercase.
 
+## Publishing
+Every push to `master` (including saves from /admin) is built and deployed automatically by Cloudflare Workers Builds (`npm run build` → `npx wrangler deploy`). Build logs: Cloudflare dashboard → Workers → alicodermaker → Deployments.
+
 ## Run / deploy by hand
     npm install
     npm run dev                     # local preview
