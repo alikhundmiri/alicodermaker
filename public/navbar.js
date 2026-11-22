@@ -21,6 +21,7 @@ document.write(`
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="https://waqt.alicodermaker.com/">Waqt: Fajr alarm app</a>
 				<a class="nav-item nav-link" href="/instagram-guide-part-1">Instagram Guide</a>
 				<a class="nav-item nav-link" href="https://calendly.com/alicodermaker/30min">Book 1-on-1 Session</a>
 			</div>
